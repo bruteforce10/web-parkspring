@@ -1,6 +1,7 @@
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import { ContextProvider } from "./utils/stateContext";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -12,12 +13,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={outfit.className}>
-        <div className=" top-0 z-[99] sticky">
-          <Navbar />
-        </div>
-        {children}
-      </body>
+      <ContextProvider>
+        <body className={outfit.className}>
+          <div className=" top-0 z-[99] sticky">
+            <Navbar />
+          </div>
+          {children}
+        </body>
+      </ContextProvider>
     </html>
   );
 }
