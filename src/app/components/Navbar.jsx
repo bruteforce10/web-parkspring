@@ -28,7 +28,8 @@ const Navbar = () => {
       transition={spring}
       className={clsx(
         "my-4 ",
-        isScrolled && "bg-white/80 backdrop-blur-sm my-auto h-24 "
+        isScrolled &&
+          "bg-white/80 backdrop-blur-sm my-auto md:h-24 h-fit max-md:py-4 "
       )}
     >
       <div className="navbar px-8 max-w-[1250px] mx-auto">
