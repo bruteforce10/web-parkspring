@@ -78,3 +78,24 @@
   display: block;
   margin-right: 30px;
 }
+
+/* costum slider */
+
+.custom-animated-handle {
+  transition: transform 0.2s;
+}
+
+.slider-with-animated-handle:hover .custom-animated-handle {
+  transform: scale(1.2);
+}
+
+/* scroll bar */
+/* App.css */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
