@@ -5,8 +5,9 @@ import { createContext, useContext, useState } from "react";
 const appContext = createContext();
 
 const ContextProvider = ({ children }) => {
+  const [target, setTarget] = useState("");
   return (
-    <appContext.Provider value={{ state: "dark" }}>
+    <appContext.Provider value={{ target, setTarget }}>
       {children}
     </appContext.Provider>
   );

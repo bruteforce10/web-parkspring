@@ -27,8 +27,8 @@ const Navbar = () => {
       layout
       transition={spring}
       className={clsx(
-        "py-6 ",
-        isScrolled && "bg-white/80 backdrop-blur-sm py-0 "
+        "my-4 ",
+        isScrolled && "bg-white/80 backdrop-blur-sm my-auto h-24 "
       )}
     >
       <div className="navbar px-8 max-w-[1250px] mx-auto">
