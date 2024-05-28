@@ -6,6 +6,7 @@ const appContext = createContext();
 
 const ContextProvider = ({ children }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,7 +24,9 @@ const ContextProvider = ({ children }) => {
     };
   }, []);
   return (
-    <appContext.Provider value={{ isScrolled, setIsScrolled }}>
+    <appContext.Provider
+      value={{ isScrolled, setIsScrolled, isOpen, setIsOpen }}
+    >
       {children}
     </appContext.Provider>
   );
