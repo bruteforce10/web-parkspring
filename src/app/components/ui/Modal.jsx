@@ -10,7 +10,15 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { AnimatePresence, motion } from "framer-motion";
 import { useAppContext } from "@/app/utils/stateContext";
 
-const Modal = () => {
+const Modal = ({
+  name,
+  description,
+  linkVR,
+  bathroom,
+  bedroom,
+  carport,
+  electric,
+}) => {
   const [slide, setSlide] = React.useState(1);
   const { setIsOpen } = useAppContext();
   return (
@@ -37,7 +45,7 @@ const Modal = () => {
                     exit={{ opacity: 0 }}
                   >
                     <Image
-                      src={`/type-house/interior/hiro/${slide}.jpg`}
+                      src={`/type-house/interior/${name}/${slide}.webp`}
                       alt="image-about"
                       width={1200}
                       className="lg:h-screen h-[50vw] object-bottom   object-cover"
@@ -71,17 +79,15 @@ const Modal = () => {
             />
           </div>
         </div>
-        <div className=" px-8 max-lg:pt-8">
+        <div className=" px-8 max-lg:-mt-2">
           <div className="space-y-2">
             <h2 className={`${fontPrimary} text-5xl lg:text-7xl text-primary`}>
-              Hiro
+              {name}
             </h2>
-            <p className="text-lg">
-              The key to finding a happy and healthy life is balance.
-            </p>
+            <p className="text-lg">{description}</p>
             <a
               className="underline underline-offset-2 block hover:text-secondary transition-all"
-              href=""
+              href={linkVR}
             >
               Get VR 360 <sup>o</sup>
             </a>
@@ -90,36 +96,36 @@ const Modal = () => {
             <div className="flex items-center gap-3">
               <IoIosBed className="text-4xl text-secondary/80 bg-slate-100 rounded-full p-2 flex-shrink-0" />
               <div className="flex items-center gap-2">
-                <h6 className={`${fontPrimary}  text-2xl`}>2</h6>
+                <h6 className={`${fontPrimary}  text-2xl`}>{bedroom}</h6>
                 <p className="font-medium text-xl  ">Bedroom</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <TbBathFilled className="text-4xl text-secondary/80 bg-slate-100 rounded-full p-2 flex-shrink-0" />
               <div className="flex items-center gap-2">
-                <h6 className={`${fontPrimary}  text-2xl`}>2</h6>
+                <h6 className={`${fontPrimary}  text-2xl`}>{bathroom}</h6>
                 <p className="font-medium text-xl  ">Bathroom</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <FaCarAlt className="text-4xl text-secondary/80 bg-slate-100 rounded-full p-2 flex-shrink-0" />
               <div className="flex items-center gap-2">
-                <h6 className={`${fontPrimary}  text-2xl`}>2</h6>
+                <h6 className={`${fontPrimary}  text-2xl`}>{carport}</h6>
                 <p className="font-medium text-xl  ">Carport</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <AiFillThunderbolt className="text-4xl text-secondary/80 bg-slate-100 rounded-full p-2 flex-shrink-0" />
               <div className="flex items-center gap-2">
-                <h6 className={`${fontPrimary}  text-2xl`}>1000</h6>
+                <h6 className={`${fontPrimary}  text-2xl`}>{electric}</h6>
                 <p className="font-medium text-xl  ">VA</p>
               </div>
             </div>
           </div>
           <Image
-            src={`/type-house/denah/hiro.png`}
+            src={`/type-house/denah/${name}.webp`}
             alt="image-about"
-            className=" mt-8 lg:mt-12"
+            className=" mt-8  lg:mt-12"
             width={300}
             height={300}
           />

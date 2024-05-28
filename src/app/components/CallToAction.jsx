@@ -14,11 +14,11 @@ const CallToAction = () => {
       animate={{ opacity: isScrolled && !hide ? 1 : 0 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
       className={
-        "h-[4.5rem] flex gap-4  items-center w-screen justify-center bg-primary relative"
+        "h-[4.5rem] flex gap-4 max-sm:px-4 items-center w-screen justify-center bg-primary relative"
       }
     >
       <h3 className="text-xl text-white">Mau info lebih lanjut?</h3>
-      <ButtonHook className={"scale-[89%] origin-left"}>
+      <ButtonHook className={"scale-[89%] origin-left max-sm:origin-right"}>
         Chat Sekarang
       </ButtonHook>
       <div

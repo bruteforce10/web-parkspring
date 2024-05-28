@@ -35,7 +35,7 @@ const Footer = () => {
                 Kunjungi 360° Parkspring Gading
               </h6>
               <Image
-                src={"/qr-virtual-reality.png"}
+                src={"/qr-virtual-reality.webp"}
                 alt="map"
                 className="max-md:mx-auto"
                 width={300}

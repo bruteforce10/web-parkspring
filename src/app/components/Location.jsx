@@ -52,7 +52,7 @@ const Location = () => {
             ))}
           </div>
           <Image
-            src="/map.png"
+            src="/map.webp"
             alt="location"
             className="max-w-full h-auto "
             width={900}

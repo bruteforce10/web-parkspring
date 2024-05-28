@@ -13,7 +13,7 @@ const content = [
       "Gated Community memberikan Anda lebih banyak privasi dan menjamin keamanan kawasan. Anda tak perlu lagi merasa khawatir, karena PARKSPRING Gading akan selalu terpantau selama 24 jam.",
     content: (
       <Image
-        src="/feature/1.png"
+        src="/feature/1.webp"
         width={300}
         height={300}
         className="h-auto w-full sm:rounded-lg"
@@ -28,7 +28,7 @@ const content = [
     content: (
       <div className="h-full w-full  flex items-center justify-center text-white">
         <Image
-          src="/feature/2.png"
+          src="/feature/2.webp"
           width={300}
           height={300}
           className="h-auto w-full sm:rounded-lg"
@@ -44,7 +44,7 @@ const content = [
     content: (
       <div className="h-full w-full  flex items-center justify-center text-white">
         <Image
-          src="/feature/3.png"
+          src="/feature/3.webp"
           width={300}
           height={300}
           className="h-auto w-full sm:rounded-lg"
@@ -60,7 +60,7 @@ const content = [
     content: (
       <div className="h-full w-full  flex items-center justify-center text-white">
         <Image
-          src="/feature/4.png"
+          src="/feature/4.webp"
           width={300}
           height={300}
           className="h-auto w-full sm:rounded-lg"
@@ -76,7 +76,7 @@ const content = [
     content: (
       <div className="h-full w-full  flex items-center justify-center text-white">
         <Image
-          src="/feature/5.png"
+          src="/feature/5.webp"
           width={300}
           height={300}
           className="h-auto w-full sm:rounded-lg"
@@ -92,7 +92,7 @@ const content = [
     content: (
       <div className="h-full w-full  flex items-center justify-center text-white">
         <Image
-          src="/feature/6.png"
+          src="/feature/6.webp"
           width={300}
           height={300}
           className="h-auto w-full sm:rounded-lg"
@@ -108,7 +108,7 @@ const content = [
     content: (
       <div className="h-full w-full  flex items-center justify-center text-white">
         <Image
-          src="/feature/7.png"
+          src="/feature/7.webp"
           width={300}
           height={300}
           className="h-auto w-full sm:rounded-lg"
@@ -130,14 +130,14 @@ const FeatureList = () => {
     >
       <div className="px-8 max-w-[1250px] mx-auto relative">
         {/* <Image
-          src={"/bird.png"}
+          src={"/bird.webp"}
           alt="parkspring"
           className="opacity-75 left-36 top-8 absolute max-lg:hidden "
           width={125}
           height={125}
         />
         <Image
-          src={"/bird.png"}
+          src={"/bird.webp"}
           alt="parkspring"
           className="opacity-60 right-36 top-0 absolute max-lg:hidden scale-x-[-1] "
           width={120}

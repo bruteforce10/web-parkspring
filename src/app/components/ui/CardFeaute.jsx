@@ -1,16 +1,26 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React from "react";
 import CardHeading from "./CardHeading";
 import CardFeature from "./CardFeature";
-import Modal from "./Modal";
 import { useAppContext } from "@/app/utils/stateContext";
 
-const CardFeaute = ({ image, name, lt, lb, bathroom, bedroom, carport }) => {
-  const { isOpen, setIsOpen } = useAppContext();
+const CardFeaute = ({
+  image,
+  name,
+  lt,
+  lb,
+  bathroom,
+  bedroom,
+  carport,
+  description,
+  electric,
+  linkVR,
+}) => {
+  const { setIsOpen } = useAppContext();
   return (
     <>
-      <div className="rounded-3xl bg-white overflow-hidden group  ">
+      <div className="rounded-3xl hover:-translate-y-4 transition-all bg-white overflow-hidden group  ">
         <div className="relative ">
           <Image
             src={`${image}`}
@@ -20,7 +30,22 @@ const CardFeaute = ({ image, name, lt, lb, bathroom, bedroom, carport }) => {
             height={600}
           />
           <div
-            onClick={() => setIsOpen(true)}
+            onClick={() =>
+              setIsOpen({
+                open: true,
+                type: {
+                  name: name,
+                  lt: lt,
+                  lb: lb,
+                  bathroom: bathroom,
+                  bedroom: bedroom,
+                  carport: carport,
+                  description: description,
+                  electric: electric,
+                  linkVR: linkVR,
+                },
+              })
+            }
             className="group-hover:z-[2] cursor-pointer transition-all  z-[-99] absolute left-0 right-0 bottom-0 top-0 place-content-center bg-primary/70 "
           >
             <p className="text-white hover:text-white/80 cursor-pointer text-center  text-2xl font-light underline underline-offset-2">
@@ -37,7 +62,6 @@ const CardFeaute = ({ image, name, lt, lb, bathroom, bedroom, carport }) => {
           />
         </div>
       </div>
-      {isOpen && <Modal />}
     </>
   );
 };

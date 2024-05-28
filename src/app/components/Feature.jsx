@@ -27,7 +27,7 @@ const Feature = () => {
   return (
     <div
       style={{
-        backgroundImage: "url(/bg-leaf.png)",
+        backgroundImage: "url(/bg-leaf.webp)",
         backgroundRepeat: "no-repeat",
       }}
       className="w-full py-16 space-y-12"

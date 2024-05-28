@@ -2,11 +2,16 @@
 import React from "react";
 import LogoParkspring from "./ui/LogoParkspring";
 import CardFeaute from "./ui/CardFeaute";
+import Modal from "./ui/Modal";
+import { useAppContext } from "../utils/stateContext";
 
 const data = [
   {
-    image: "/type-house/hiro.png",
+    image: "/type-house/hiro.webp",
     name: "Hiro",
+    description: "The key to finding a happy and healthy life is balance.",
+    linkVR: "test",
+    electric: 2200,
     lt: 60,
     lb: 74,
     bathroom: 1,
@@ -14,8 +19,11 @@ const data = [
     carport: 1,
   },
   {
-    image: "/type-house/villa.png",
+    image: "/type-house/villa.webp",
     name: "Villa",
+    description: "It's time to start living your life you've always imagined.",
+    linkVR: "test",
+    electric: 2200,
     lt: 60,
     lb: 91,
     bathroom: "2+1",
@@ -23,8 +31,11 @@ const data = [
     carport: 1,
   },
   {
-    image: "/type-house/grand.png",
+    image: "/type-house/grand.webp",
     name: "Grand",
+    description: "It's a place where you make memories with your family.",
+    linkVR: "test",
+    electric: 3500,
     lt: 80,
     lb: 111,
     bathroom: "3+1",
@@ -34,6 +45,8 @@ const data = [
 ];
 
 const TypeSection = () => {
+  const { isOpen } = useAppContext();
+  console.log(isOpen);
   return (
     <>
       <section id="type" className="bg-[#F4F4F4] pb-12 -scroll-mt-28">
@@ -49,12 +62,17 @@ const TypeSection = () => {
             </p>
           </div>
           <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  gap-8 sm:mt-16 mt-12 ">
-            {data.map((item, index) => (
-              <CardFeaute key={index} {...item} />
-            ))}
+            {data.map((item, index) => {
+              return (
+                <React.Fragment key={index}>
+                  <CardFeaute {...item} />
+                </React.Fragment>
+              );
+            })}
           </div>
         </div>
       </section>
+      {isOpen?.open && <Modal {...isOpen?.type} />}
     </>
   );
 };

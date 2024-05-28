@@ -22,8 +22,8 @@ const ImageFeature = () => {
       </div>
       <div className="w-fit mx-auto">
         <ImgComparisonSlider className="max-w-[1250px] lg:rounded-3xl slider-with-animated-handle">
-          <img slot="first" src="/slider.png" />
-          <img slot="second" src="/slider-2.png" />
+          <img slot="first" src="/slider.webp" />
+          <img slot="second" src="/slider-2.webp" />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="100"
