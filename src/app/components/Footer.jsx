@@ -26,7 +26,7 @@ const Footer = () => {
           />
         </div>
         <div className=" w-fit max-md:text-center ">
-          <h5 className={`${fontPrimary} text-4xl leading-relaxed`}>
+          <h5 className={`font-semibold text-4xl leading-relaxed`}>
             Rumah berkonsep Modern Japanese Tropical di area Kelapa Gading
           </h5>
           <div className="mt-4 flex max-sm:flex-col justify-between gap-8">
@@ -46,13 +46,14 @@ const Footer = () => {
               <div className="flex items-start gap-2">
                 <FaLocationDot className="text-xl mt-2" />
                 <p className="text-lg font-light w-[80%] leading-relaxed">
-                  Jl. Raya Kelapa Gading No. 1, Kelapa Gading, Jakarta Utara{" "}
+                  Jl. Tipar Cakung No.52, RT.5/RW.5, Sukapura, Kec. Cilincing,
+                  Jkt Utara
                 </p>
               </div>
               <div className="flex items-center gap-2">
                 <FaClock className="text-xl " />
                 <p className="text-lg font-light leading-relaxed">
-                  10.00 - 16.00 WIB
+                  09.00 - 17.00 WIB
                 </p>
               </div>
               <div className="flex items-center gap-2">
@@ -64,14 +65,14 @@ const Footer = () => {
               <div className="flex items-center gap-2">
                 <IoLogoWhatsapp className="text-xl " />
                 <p className="text-lg font-light leading-relaxed">
-                  0895-0904-6152
+                  0813-8880-1886
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <p className="text-center mt-14 opacity-70 mb-4">
+      <p id="vr" className="text-center mt-14 opacity-70 mb-4">
         Copyright © 2024 - All right reserved
       </p>
     </div>

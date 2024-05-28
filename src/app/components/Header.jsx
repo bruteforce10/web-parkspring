@@ -1,27 +1,11 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
-
 import clsx from "clsx";
+import { useAppContext } from "../utils/stateContext";
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 120) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const { isScrolled } = useAppContext();
 
   return (
     <div className="relative">
@@ -42,7 +26,7 @@ const Header = () => {
       />
       <div
         className={clsx(
-          "icon-scroll top-[90%] max-sm:hidden lg:top-[70%]",
+          "icon-scroll lg:top-[65%] top-[90%] max-sm:hidden xl:top-[65%]",
           isScrolled && "hidden"
         )}
       />

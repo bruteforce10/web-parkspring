@@ -29,8 +29,8 @@ export const ImageAbout = () => {
           height={400}
         />
         <motion.div
-          className="absolute bottom-[150px] w-64 space-y-4 -right-32 max-sm:hidden"
-          style={{ bottom: scroll * 0.2 - 100 }}
+          className="absolute bottom-[200px] w-64 space-y-4 -right-32 max-sm:hidden"
+          style={{ bottom: scroll * 0.15 - 100 }}
         >
           <Image
             src={"/aboutsecond.webp"}
@@ -39,19 +39,25 @@ export const ImageAbout = () => {
             width={250}
             height={250}
           />
-          <div className="bg-gray-50  p-4 rounded-3xl flex gap-4 items-center">
+          <a
+            href="#vr"
+            className="bg-gray-50  p-4 rounded-3xl flex gap-4 items-center"
+          >
             <Image src={"/360.svg"} alt="image-about" width={40} height={40} />
             <p className="text-[#5F603A] leading-snug">
               Check out the virtual tour of Parkspring
             </p>
-          </div>
+          </a>
         </motion.div>
-        <div className="bg-gray-50 -mt-[90px] mx-auto w-[95%] relative p-4 rounded-xl max-sm:flex hidden gap-4 items-center">
+        <a
+          href="#vr"
+          className="bg-gray-50 -mt-[90px] mx-auto w-[95%] relative p-4 rounded-xl max-sm:flex hidden gap-4 items-center"
+        >
           <Image src={"/360.svg"} alt="image-about" width={40} height={40} />
           <p className="text-[#5F603A] leading-snug ">
             Check out the virtual tour of Parkspring
           </p>
-        </div>
+        </a>
       </div>
     </motion.div>
   );

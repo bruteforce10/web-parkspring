@@ -124,7 +124,10 @@ const FeatureList = () => {
   const isInView = useInView(ref);
 
   return (
-    <div className="max-sm:py-10 pt-20 sm:space-y-16 space-y-10">
+    <section
+      id="facilities"
+      className="max-sm:py-10 pt-20 sm:space-y-16 -scroll-mt-28 space-y-10"
+    >
       <div className="px-8 max-w-[1250px] mx-auto relative">
         {/* <Image
           src={"/bird.png"}
@@ -163,7 +166,7 @@ const FeatureList = () => {
       </div>
 
       <MobileFeatureList content={content} />
-    </div>
+    </section>
   );
 };
 

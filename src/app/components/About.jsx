@@ -4,7 +4,10 @@ import Button from "./ui/Button";
 
 const About = () => {
   return (
-    <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-2 max-w-[1250px] mx-auto px-8 py-16">
+    <section
+      id="about"
+      className="grid grid-cols-1 scroll-mt-20 gap-y-8 lg:grid-cols-2 max-w-[1250px] mx-auto px-8 py-16"
+    >
       <ImageAbout />
       <div className="space-y-4">
         <div className="space-y-1">
@@ -22,7 +25,7 @@ const About = () => {
         </p>
         <Button>Lean More</Button>
       </div>
-    </div>
+    </section>
   );
 };
 

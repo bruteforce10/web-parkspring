@@ -1,26 +1,15 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import StyleList from "./ui/style-list";
 import { LuInstagram } from "react-icons/lu";
 import { GrFacebookOption } from "react-icons/gr";
 import clsx from "clsx";
 import { motion, spring } from "framer-motion";
+import { useAppContext } from "../utils/stateContext";
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-  }, []);
-
-  const handleScroll = () => {
-    if (window.scrollY > 0) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
-    }
-  };
+  const { isScrolled } = useAppContext();
 
   return (
     <motion.div
@@ -29,7 +18,7 @@ const Navbar = () => {
       className={clsx(
         "my-4 ",
         isScrolled &&
-          "bg-white/80 backdrop-blur-sm my-auto md:h-24 h-fit max-md:py-4 "
+          "bg-white/80 backdrop-blur-sm o md:h-24 h-fit max-md:py-4 "
       )}
     >
       <div className="navbar px-8 max-w-[1250px] mx-auto">
@@ -43,9 +32,9 @@ const Navbar = () => {
           />
           <div className="hidden lg:block">
             <ul className="menu gap-10 menu-horizontal">
-              <StyleList herf="/" text="About" />
-              <StyleList herf="/" text="Type" />
-              <StyleList herf="/" text="Facilities" />
+              <StyleList herf="#about" text="About" />
+              <StyleList herf="#type" text="Type" />
+              <StyleList herf="#facilities" text="Facilities" />
             </ul>
           </div>
         </div>
@@ -87,23 +76,46 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content -left-[90px] mt-3 z-[1] p-2 shadow bg-base-100 rounded-box"
             >
               <li>
-                <a>Homepage</a>
+                <a href="#about">About</a>
               </li>
               <li>
-                <a>Portfolio</a>
+                <a href="#type">Type</a>
               </li>
               <li>
-                <a>About</a>
+                <a href="#facilities">Facilities</a>
+              </li>
+              <li>
+                <a href="#vr">Virtual Tour</a>
+              </li>
+              <li>
+                <a href="#location">Location</a>
               </li>
             </ul>
           </div>
           {/* end dropdown */}
           <ul className="menu flex-nowrap gap-10 hidden lg:flex  items-center menu-horizontal">
-            <StyleList herf="/" text="Virtual Tour" />
-            <StyleList herf="/" text="Location" />
-            <div className="flex  gap-3   ">
-              <LuInstagram className="text-xl text-[#9b9d59] hover:text-white cursor-pointer transition-all" />
-              <GrFacebookOption className="text-xl text-[#9b9d59] hover:text-white cursor-pointer transition-all" />
+            <StyleList herf="#vr" text="Virtual Tour" />
+            <StyleList herf="#location" text="Location" />
+            <div className="flex  gap-3 ">
+              <a
+                href="https://www.instagram.com/parkspring.gading/"
+                target="_blank"
+              >
+                <LuInstagram
+                  className={clsx(
+                    "text-xl text-[#9b9d59] hover:text-white cursor-pointer transition-all",
+                    isScrolled && "hover:text-secondary transition-all"
+                  )}
+                />
+              </a>
+              <a href="https://www.facebook.com/parkspring.id/" target="_blank">
+                <GrFacebookOption
+                  className={clsx(
+                    "text-xl text-[#9b9d59] hover:text-white cursor-pointer transition-all",
+                    isScrolled && "hover:text-secondary transition-all"
+                  )}
+                />
+              </a>
             </div>
           </ul>
         </div>

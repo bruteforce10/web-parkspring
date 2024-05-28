@@ -1,13 +1,29 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const appContext = createContext();
 
 const ContextProvider = ({ children }) => {
-  const [target, setTarget] = useState("");
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 120) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <appContext.Provider value={{ target, setTarget }}>
+    <appContext.Provider value={{ isScrolled, setIsScrolled }}>
       {children}
     </appContext.Provider>
   );

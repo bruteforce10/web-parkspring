@@ -6,35 +6,35 @@ const data = [
   {
     image: "/type-house/hiro.png",
     name: "Hiro",
-    lt: 32,
-    lb: 20,
-    bathroom: 2,
-    bedroom: 3,
+    lt: 60,
+    lb: 74,
+    bathroom: 1,
+    bedroom: 2,
     carport: 1,
   },
   {
     image: "/type-house/villa.png",
     name: "Villa",
-    lt: 72,
-    lb: 40,
-    bathroom: 4,
-    bedroom: 4,
-    carport: 2,
+    lt: 60,
+    lb: 91,
+    bathroom: "2+1",
+    bedroom: "3+1",
+    carport: 1,
   },
   {
     image: "/type-house/grand.png",
     name: "Grand",
-    lt: 32,
-    lb: 20,
-    bathroom: 2,
-    bedroom: 3,
-    carport: 1,
+    lt: 80,
+    lb: 111,
+    bathroom: "3+1",
+    bedroom: "3+1",
+    carport: 2,
   },
 ];
 
 const TypeSection = () => {
   return (
-    <div className="bg-[#F4F4F4] pb-12">
+    <section id="type" className="bg-[#F4F4F4] pb-12 -scroll-mt-28">
       <div className="max-w-[1250px]   mx-auto px-8 sm:py-20 py-12">
         <div className="flex justify-center flex-col items-center max-sm:scale-[85%]">
           <p className="text-[#304824] font-light text-xl text-center">
@@ -52,7 +52,7 @@ const TypeSection = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

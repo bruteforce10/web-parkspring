@@ -17,7 +17,7 @@ const ImageFeature = () => {
           </h3>
         </div>
         <HoverBorderGradient className={"text-black "}>
-          Nikmati konsep Japanese Tropical di setiap sudut hinuan Anda
+          Nikmati konsep Japanese Tropical di setiap sudut hunian Anda
         </HoverBorderGradient>
       </div>
       <div className="w-fit mx-auto">
