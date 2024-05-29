@@ -29,6 +29,8 @@ const Feature = () => {
       style={{
         backgroundImage: "url(/bg-leaf.webp)",
         backgroundRepeat: "no-repeat",
+        width: "100%",
+        minHeight: "400px",
       }}
       className="w-full py-16 space-y-12"
     >
