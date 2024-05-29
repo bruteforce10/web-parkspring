@@ -8,18 +8,18 @@ import LogoParkspring from "./ui/LogoParkspring";
 const data = [
   {
     Icon: LuLeaf,
-    heading: "Japanese Tropical",
-    desc: "Konsep yang memberikan kenyamanan penghuni namun tetap estetik",
+    heading: "Japanese Tropical ",
+    desc: "Hunian berkonsep Modern Minimalis Jepang yang memberikan kenyamanan bagi penghuni dengan mengutamakan #BalanceLiving tanpa mengurangi keindahan dan estetika desainnya",
   },
   {
     Icon: TbLocationCheck,
     heading: "Lokasi Strategis",
-    desc: "Berlokasi di area Kelapa Gading, memberikan kemudahan untuk menjangkau banyak fasilitas publik",
+    desc: "Berlokasi di area Kelapa Gading, memberikan kemudahan untuk menjangkau banyak fasilitas publik seperti Mall, Rumah Sakit, dan Sekolah",
   },
   {
     Icon: BsHouseHeart,
     heading: "Beragam Fasilitas",
-    desc: "Dilengkapi oleh berbagai fasilitas eksklusif untuk menjaga keseimbangan hidup Anda",
+    desc: "Dilengkapi oleh berbagai fasilitas eksklusif di dalam cluster untuk menjaga keseimbangan hidup Anda",
   },
 ];
 
@@ -40,7 +40,7 @@ const Feature = () => {
           Hunian Ideal Untuk Anda dan Keluarga
         </p>
       </div>
-      <div className=" px-8 max-w-[1250px] mx-auto grid grid-cols-1 gap-12 max-sm:gap-y-8  lg:grid-cols-3 lg:gap-8 ">
+      <div className=" px-8 max-w-[1250px] mx-auto grid grid-cols-1 gap-12 max-sm:gap-y-8  lg:grid-cols-3 lg:gap-12 ">
         {data.map((item, index) => (
           <FeatureList
             key={index}

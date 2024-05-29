@@ -55,7 +55,7 @@ const TypeSection = () => {
       <section id="type" className="bg-[#F4F4F4] pb-12 -scroll-mt-28">
         <div className="max-w-[1250px]   mx-auto px-8 sm:py-20 py-12">
           <div className="flex justify-center flex-col items-center max-sm:scale-[85%]">
-            <p className="text-[#304824] font-light text-xl text-center">
+            <p className="text-[#304824] font-light text-xl text-center mb-1">
               Type Unit
             </p>
             <LogoParkspring />

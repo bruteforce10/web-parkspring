@@ -45,7 +45,7 @@ export const ImageAbout = () => {
           >
             <Image src={"/360.svg"} alt="image-about" width={40} height={40} />
             <p className="text-[#5F603A] leading-snug">
-              Check out the virtual tour of Parkspring
+              Jelajahi PARKSPRING Gading secara Virtual!
             </p>
           </a>
         </motion.div>
@@ -55,7 +55,7 @@ export const ImageAbout = () => {
         >
           <Image src={"/360.svg"} alt="image-about" width={40} height={40} />
           <p className="text-[#5F603A] leading-snug ">
-            Check out the virtual tour of Parkspring
+            Klik Disini untuk Jelajahi PARKSPRING Gading secara Virtual!
           </p>
         </a>
       </div>

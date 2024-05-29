@@ -7,7 +7,7 @@ const ButtonHook = ({ children, className }) => {
     <button
       onClick={() =>
         window.open(
-          "https://api.whatsapp.com/send?phone=%206281380555788&text=Hai,%20saya%20dapat%20info%20dari%20website%20PARKSPRING%20Gading"
+          "https://api.whatsapp.com/send?phone=%20628179000104&text=Hai,%20saya%20dapat%20info%20dari%20website%20PARKSPRING%20Gading"
         )
       }
       className={`${className} bg-white text-lg px-6 py-2 rounded-full scale-[110%] h-fit transition-all hover:bg-transparent group hover:border-[1px] `}

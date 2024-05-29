@@ -11,12 +11,12 @@ const dataLocation = [
   {
     title: "8-10 Menit",
     list: [
-      "Rumah Sakit Mulyasari",
       "Rumah Sakit Gading Pluit",
-      "Beacon Academy International School ",
       "Mall Kelapa Gading",
-      "Wisata Kuliner Kelapa Gading",
       "North Jakarta International School",
+      "Wisata Kuliner Kelapa Gading",
+      "Beacon Academy International School",
+      "Tol Tanjung Priok",
     ],
   },
   {
@@ -25,7 +25,7 @@ const dataLocation = [
       "Mall Artha Gading",
       "Rumah Sakit Mitra Keluarga",
       "Mall of Indonesia",
-      "Pneabur International School",
+      "Penabur International School",
     ],
   },
 ];
@@ -37,7 +37,7 @@ const Location = () => {
         <div className="flex justify-center flex-col items-center max-sm:scale-[85%]">
           <LogoParkspring />
           <p className="text-[#304824] font-light text-xl text-center">
-            Memberikan kemudahan akses untuk berbagai aktivitas
+            Memberikan akses yang mudah untuk berbagai aktivitas Anda
           </p>
         </div>
         <div className="grid md:grid-cols-2 grid-cols-1  gap-14 justify-center ">

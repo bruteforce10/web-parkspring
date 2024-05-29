@@ -147,7 +147,7 @@ const FeatureList = () => {
           ref={ref}
           className="text-center text-2xl sm:text-4xl font-semibold w-full md:w-[70%] lg:w-[40%] mx-auto leading-tight"
         >
-          Quality Time dengan Berbagai Fasilitas Kawasan
+          Quality Time dengan Berbagai Fasilitas Unggulan
         </h2>
         <motion.div
           initial={{ width: "0%" }}
