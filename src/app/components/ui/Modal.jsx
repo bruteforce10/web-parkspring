@@ -21,6 +21,7 @@ const Modal = ({
 }) => {
   const [slide, setSlide] = React.useState(1);
   const { setIsOpen } = useAppContext();
+  const denah = name.toLowerCase();
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -123,7 +124,7 @@ const Modal = ({
             </div>
           </div>
           <Image
-            src={`/type-house/denah/${name}.webp`}
+            src={`/type-house/denah/${denah}.webp`}
             alt="image-about"
             className=" mt-8  lg:mt-12"
             width={300}

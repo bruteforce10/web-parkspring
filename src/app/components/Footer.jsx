@@ -21,12 +21,15 @@ const Footer = () => {
           <Image
             src="/karsindo-group.webp"
             alt="logo-parkspring"
+            className="max-md:mx-auto "
             width={200}
             height={200}
           />
         </div>
         <div className=" w-fit max-md:text-center ">
-          <h5 className={`font-semibold text-4xl leading-relaxed`}>
+          <h5
+            className={`font-semibold text-4xl max-md:text-center max-md:text-3xl leading-relaxed`}
+          >
             Rumah berkonsep Modern Japanese Tropical di area Kelapa Gading
           </h5>
           <div className="mt-4 flex max-sm:flex-col justify-between gap-8">
