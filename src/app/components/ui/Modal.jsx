@@ -17,6 +17,7 @@ const Modal = ({
   bathroom,
   bedroom,
   carport,
+  imageDenah,
   electric,
 }) => {
   const [slide, setSlide] = React.useState(1);
@@ -124,7 +125,7 @@ const Modal = ({
             </div>
           </div>
           <Image
-            src={`/type-house/denah/${denah}.webp`}
+            src={imageDenah}
             alt="image-about"
             className=" mt-8  lg:mt-12"
             width={300}

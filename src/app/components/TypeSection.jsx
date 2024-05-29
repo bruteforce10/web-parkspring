@@ -8,6 +8,7 @@ import { useAppContext } from "../utils/stateContext";
 const data = [
   {
     image: "/type-house/hiro.webp",
+    imageDenah: "/type-house/denah/hiro.webp",
     name: "Hiro",
     description: "The key to finding a happy and healthy life is balance.",
     linkVR: "test",
@@ -20,6 +21,7 @@ const data = [
   },
   {
     image: "/type-house/villa.webp",
+    imageDenah: "/type-house/denah/villa.webp",
     name: "Villa",
     description: "It's time to start living your life you've always imagined.",
     linkVR: "test",
@@ -32,6 +34,7 @@ const data = [
   },
   {
     image: "/type-house/grand.webp",
+    imageDenah: "/type-house/denah/grand.webp",
     name: "Grand",
     description: "It's a place where you make memories with your family.",
     linkVR: "test",
@@ -46,7 +49,7 @@ const data = [
 
 const TypeSection = () => {
   const { isOpen } = useAppContext();
-  console.log(isOpen);
+
   return (
     <>
       <section id="type" className="bg-[#F4F4F4] pb-12 -scroll-mt-28">

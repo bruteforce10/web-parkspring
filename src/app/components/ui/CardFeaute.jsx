@@ -7,6 +7,7 @@ import { useAppContext } from "@/app/utils/stateContext";
 
 const CardFeaute = ({
   image,
+  imageDenah,
   name,
   lt,
   lb,
@@ -43,6 +44,7 @@ const CardFeaute = ({
                   description: description,
                   electric: electric,
                   linkVR: linkVR,
+                  imageDenah: imageDenah,
                 },
               })
             }
