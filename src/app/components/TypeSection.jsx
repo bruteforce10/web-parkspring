@@ -34,7 +34,7 @@ const data = [
   },
   {
     image: "/type-house/grand.webp",
-    imageDenah: "/type-house/denah/grand.webp",
+    imageDenah: "/type-house/denah/grand-fix.webp",
     name: "Grand",
     description: "It's a place where you make memories with your family.",
     linkVR: "test",
