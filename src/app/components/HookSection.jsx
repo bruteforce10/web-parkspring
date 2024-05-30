@@ -9,7 +9,7 @@ const HookSection = () => {
           <h3 className="text-5xl font-semibold ">Kunjungi Show Unit Kami!</h3>
           <p className="font-light text-lg sm:w-[70%] leading-relaxed max-md:mx-auto">
             Segera buat janji dengan tim penjualan kami dan kunjungi show unit
-            kami untuk merasakan kenyamanan tinggal di Parkspring Gading
+            kami untuk merasakan kenyamanan tinggal di PARKSPRING Gading
           </p>
         </div>
         <ButtonHook>Buat Janji</ButtonHook>

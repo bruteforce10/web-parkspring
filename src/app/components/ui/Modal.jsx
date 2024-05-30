@@ -28,7 +28,7 @@ const Modal = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 bottom-0 left-0 right-0 bg-white z-[99] "
+      className="fixed top-0 bottom-0 left-0 right-0 bg-white z-[100] "
     >
       <IoCloseOutline
         onClick={() => setIsOpen(false)}
@@ -90,6 +90,7 @@ const Modal = ({
             <a
               className="underline underline-offset-2 block hover:text-secondary transition-all"
               href={linkVR}
+              target="_blank"
             >
               Get VR 360 <sup>o</sup>
             </a>

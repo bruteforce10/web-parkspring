@@ -40,7 +40,8 @@ export const ImageAbout = () => {
             height={250}
           />
           <a
-            href="#vr"
+            href="https://storage.wefinite.com/PARKSPRING_Gading"
+            target="_blank"
             className="bg-gray-50  p-4 rounded-3xl flex gap-4 items-center"
           >
             <Image src={"/360.svg"} alt="image-about" width={40} height={40} />
@@ -50,7 +51,8 @@ export const ImageAbout = () => {
           </a>
         </motion.div>
         <a
-          href="#vr"
+          href="https://storage.wefinite.com/PARKSPRING_Gading"
+          target="_blank"
           className="bg-gray-50 -mt-[90px] mx-auto w-[95%] relative p-4 rounded-xl max-sm:flex hidden gap-4 items-center"
         >
           <Image src={"/360.svg"} alt="image-about" width={40} height={40} />

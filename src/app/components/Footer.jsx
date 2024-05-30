@@ -35,7 +35,7 @@ const Footer = () => {
           <div className="mt-4 flex max-sm:flex-col justify-between gap-8">
             <div className="space-y-6">
               <h6 className="text-xl font-medium">
-                Kunjungi 360° Parkspring Gading
+                Kunjungi 360° PARKSPRING Gading
               </h6>
               <Image
                 src={"/qr-virtual-reality.webp"}
@@ -68,7 +68,7 @@ const Footer = () => {
               <div className="flex items-center gap-2">
                 <IoLogoWhatsapp className="text-xl " />
                 <p className="text-lg font-light leading-relaxed">
-                  0813-8880-1886
+                  0817-9000-104
                 </p>
               </div>
             </div>

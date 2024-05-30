@@ -10,7 +10,7 @@ const content = [
   {
     title: "One Gate System",
     description:
-      "Gated Community memberikan Anda lebih banyak privasi dan menjamin keamanan kawasan. Anda tak perlu lagi merasa khawatir, karena PARKSPRING Gading akan selalu terpantau selama 24 jam.",
+      "One Gate System memberikan Anda lebih banyak privasi dan menjamin keamanan lingkungan rumah Anda. Dengan keamanan 24 jam, Anda tak perlu lagi merasa khawatir karena PARKSPRING Gading akan selalu terpantau, aman, dan nyaman.",
     content: (
       <Image
         src="/feature/1.webp"
@@ -24,7 +24,7 @@ const content = [
   {
     title: "Multi-Purpose Area",
     description:
-      "Area serbaguna yang disediakan untuk berbagai aktivitas, seperti acara keluarga, pertemuan komunitas, atau kegiatan sosial lainnya. Area ini didesain fleksibel agar dapat digunakan sesuai dengan kebutuhan penghuni.",
+      "Area serbaguna yang disediakan untuk berbagai aktivitas, seperti acara keluarga, pertemuan komunitas, atau sebagai working space atau kegiatan sosial lainnya. Area ini didesain fleksibel agar dapat digunakan sesuai dengan kebutuhan penghuni.",
     content: (
       <div className="h-full w-full  flex items-center justify-center text-white">
         <Image
@@ -40,7 +40,7 @@ const content = [
   {
     title: "Natural Playground",
     description:
-      "Kawasan kids friendly yang menyediakan fasilitas khusus untuk keceriaan anak Anda. Playdate dari dalam kawasan yang aman tetap akan menyenangkan tanpa perlu merasa khawatir.",
+      "Sarana bermain anak di PARKSPRING Gading dirancang khusus dengan konsep yang menyatu dengan alam. Anak-anak dapat bermain sembari menjelajahi kreativitasnya. Dengan berbagai macam permainan, anak-anak dapat meningkatkan kemampuan motorik dan ketahanan tubuhnya di sini.",
     content: (
       <div className="h-full w-full  flex items-center justify-center text-white">
         <Image
@@ -56,7 +56,7 @@ const content = [
   {
     title: "Outdoor Gym",
     description:
-      "Fasilitas gym terbuka yang memungkinkan penghuni untuk menjaga kebugaran fisik sambil menikmati udara segar.",
+      "Fasilitas gym dengan konsep terbuka yang memungkinkan penghuni untuk berolahraga dengan berbagai macam equipment sambil menikmati udara segar.",
     content: (
       <div className="h-full w-full  flex items-center justify-center text-white">
         <Image
@@ -72,7 +72,7 @@ const content = [
   {
     title: "Jogging Path",
     description:
-      "Jalur jogging yang dirancang dengan baik untuk para penghuni yang ingin berolahraga lari atau jalan santai. ",
+      "Jogging Path memberikan kesempatan bagi penghuni untuk melakukan aktivitas olahraga atau sekadar berjalan santai tanpa harus pergi jauh keluar komplek rumah.",
     content: (
       <div className="h-full w-full  flex items-center justify-center text-white">
         <Image
