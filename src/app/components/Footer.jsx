@@ -7,7 +7,7 @@ import { IoLogoWhatsapp } from "react-icons/io";
 const Footer = () => {
   return (
     <div className="h-screen md:pt-[7rem] max-md:py-12 text-primary">
-      <div className="max-w-[1250px] mx-auto px-8 flex max-md:flex-col max-md:justify-center justify-between  gap-8 md:gap-12">
+      <div className="max-w-[1250px] mx-auto px-8 flex max-md:flex-col max-md:justify-center justify-between  gap-8 md:gap-20">
         <div className="space-y-10 max-md:space-y-6 max-md:mx-auto w-fit ">
           <Image
             src="/logo-parkspring.svg"
