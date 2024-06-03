@@ -27,6 +27,7 @@ export const ImageAbout = () => {
           className="rounded-xl"
           width={400}
           height={400}
+          quality={50}
         />
         <motion.div
           className="absolute bottom-[200px] w-64 space-y-4 -right-32 max-sm:hidden"
@@ -38,13 +39,20 @@ export const ImageAbout = () => {
             className="rounded-xl  shadow-md"
             width={250}
             height={250}
+            quality={50}
           />
           <a
             href="https://storage.wefinite.com/PARKSPRING_Gading"
             target="_blank"
             className="bg-gray-50  p-4 rounded-3xl flex gap-4 items-center"
           >
-            <Image src={"/360.svg"} alt="image-about" width={40} height={40} />
+            <Image
+              src={"/360.svg"}
+              alt="image-about"
+              width={40}
+              height={40}
+              quality={50}
+            />
             <p className="text-[#5F603A] leading-snug">
               Jelajahi PARKSPRING Gading secara Virtual!
             </p>
@@ -55,7 +63,13 @@ export const ImageAbout = () => {
           target="_blank"
           className="bg-gray-50 -mt-[90px] mx-auto w-[95%] relative p-4 rounded-xl max-sm:flex hidden gap-4 items-center"
         >
-          <Image src={"/360.svg"} alt="image-about" width={40} height={40} />
+          <Image
+            src={"/360.svg"}
+            alt="image-about"
+            width={40}
+            height={40}
+            quality={50}
+          />
           <p className="text-[#5F603A] leading-snug ">
             Klik Disini untuk Jelajahi PARKSPRING Gading secara Virtual!
           </p>

@@ -17,15 +17,17 @@ const ImageFeature = ({ headingMadeBy, descriptionMadeBy }) => {
     <div className="pt-14">
       <div className="text-center flex flex-col mb-8 gap-4 items-center max-w-[1250px] mx-auto px-8">
         <div className="space-y-6 mb-2">
-          <h5 className="text-primary text-lg sm:text-xl">
+          <p className="text-primary text-lg sm:text-xl">
             {heading[0]} <span className="font-semibold">{heading[1]}</span>{" "}
             {heading[2]}
-          </h5>
+          </p>
           <Image
             src={"/satu-arsitek.webp"}
             className="mx-auto"
+            alt="satu arsitek parskpsring"
             width={230}
             height={230}
+            quality={50}
           />
         </div>
         <HoverBorderGradient className={"text-black "}>
@@ -34,8 +36,22 @@ const ImageFeature = ({ headingMadeBy, descriptionMadeBy }) => {
       </div>
       <div className="w-fit mx-auto">
         <ImgComparisonSlider className="max-w-[1250px] lg:rounded-3xl slider-with-animated-handle">
-          <img slot="first" src="/slider.webp" />
-          <img slot="second" src="/slider-2.webp" />
+          <img
+            slot="first"
+            src="/slider.webp"
+            alt="interior parkspring rumah mewah"
+            className="w-full"
+            width={500}
+            height={500}
+          />
+          <img
+            slot="second"
+            src="/slider-2.webp"
+            alt="interior parkspring rumah mewah"
+            className="w-full"
+            width={500}
+            height={500}
+          />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="100"

@@ -29,6 +29,7 @@ const CardFeaute = ({
             width={600}
             className="max-md:h-auto h-[300px] w-full object-cover"
             height={600}
+            quality={50}
           />
           <div
             onClick={() =>

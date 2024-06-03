@@ -17,7 +17,7 @@ const About = ({ headingAboutUs, descriptionAboutUs }) => {
       <ImageAbout />
       <div className="space-y-4">
         <div className="space-y-1">
-          <h5 className="text-primary font-medium text-xl">About Us</h5>
+          <p className="text-primary font-medium text-xl">About Us</p>
           <h3 className="text-4xl leading-normal font-semibold">
             {combinedHeading[0]} <br className="max-md:hidden" />{" "}
             {[combinedHeading[1]]}

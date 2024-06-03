@@ -25,6 +25,7 @@ const Footer = () => {
             alt="logo-parkspring"
             width={300}
             height={300}
+            quality={50}
           />
           <p className="text-lg max-md:text-center">
             Envisioned By Karsindo Group.
@@ -34,6 +35,7 @@ const Footer = () => {
             alt="logo-parkspring"
             className="max-md:mx-auto "
             width={200}
+            quality={50}
             height={200}
           />
         </div>
@@ -53,6 +55,7 @@ const Footer = () => {
                 alt="map"
                 className="max-md:mx-auto"
                 width={300}
+                quality={50}
                 height={300}
               />
             </div>

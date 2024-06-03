@@ -57,6 +57,7 @@ const Location = ({ headingLocation, listLocation }) => {
             className="max-w-full h-auto "
             width={900}
             height={900}
+            quality={50}
           />
         </div>
       </div>

@@ -21,6 +21,7 @@ const FeatureList = ({ headingFeature, listFeature }) => {
           height={300}
           className="h-auto w-full sm:rounded-lg"
           alt="linear board demo"
+          quality={50}
         />
       </div>
     ),

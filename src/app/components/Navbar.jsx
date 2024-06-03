@@ -30,6 +30,7 @@ const Navbar = () => {
             className="w-[60%] md:hidden block object-contain z-50"
             width={50}
             height={50}
+            quality={50}
           />
           <div className="hidden lg:block">
             <ul className="menu gap-10 menu-horizontal">
@@ -47,6 +48,7 @@ const Navbar = () => {
               className="w-[95%] md:block hidden object-contain z-50"
               width={50}
               height={50}
+              quality={50}
             />
           </motion.div>
         </div>
@@ -97,8 +99,12 @@ const Navbar = () => {
           <ul className="menu flex-nowrap gap-10 hidden lg:flex  items-center menu-horizontal">
             <StyleList herf="#vr" text="Virtual Tour" />
             <StyleList herf="#location" text="Location" />
-            <div className="flex  gap-3 ">
-              <a href={linkData?.linkInstagram} target="_blank">
+            <li className="flex  gap-3 ">
+              <a
+                aria-label="link instagram parksrping"
+                href={linkData?.linkInstagram}
+                target="_blank"
+              >
                 <LuInstagram
                   className={clsx(
                     "text-xl text-[#9b9d59] hover:text-white cursor-pointer transition-all",
@@ -106,7 +112,11 @@ const Navbar = () => {
                   )}
                 />
               </a>
-              <a href={linkData?.linkFacebook} target="_blank">
+              <a
+                aria-label="link facebook parksrping"
+                href={linkData?.linkFacebook}
+                target="_blank"
+              >
                 <GrFacebookOption
                   className={clsx(
                     "text-xl text-[#9b9d59] hover:text-white cursor-pointer transition-all",
@@ -114,7 +124,7 @@ const Navbar = () => {
                   )}
                 />
               </a>
-            </div>
+            </li>
           </ul>
         </div>
       </div>

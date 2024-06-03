@@ -52,6 +52,7 @@ const Modal = ({
                       width={1200}
                       className="lg:h-screen h-[50vw] object-bottom   object-cover"
                       height={600}
+                      quality={50}
                     />
                   </motion.div>
                 </AnimatePresence>
@@ -130,6 +131,7 @@ const Modal = ({
             alt="image-about"
             className=" mt-8  lg:mt-12"
             width={300}
+            quality={50}
             height={300}
           />
         </div>

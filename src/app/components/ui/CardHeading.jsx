@@ -8,15 +8,15 @@ const CardHeading = ({ name, lt, lb }) => {
       <div className="flex gap-4 divide-x h-fit">
         <div className="flex items-start gap-[4px]  pl-4">
           <p className="text-sm">LT</p>
-          <h6 className="font-semibold text-xl max-sm:text-sm whitespace-nowrap">
+          <p className="font-semibold text-xl max-sm:text-sm whitespace-nowrap">
             {lt} m<sup className="text-sm">2</sup>
-          </h6>
+          </p>
         </div>
         <div className="flex items-start gap-[4px] pl-4">
           <p className="text-sm">LB</p>
-          <h6 className="font-semibold text-xl max-sm:text-sm whitespace-nowrap">
+          <p className="font-semibold text-xl max-sm:text-sm whitespace-nowrap">
             {lb} m<sup className="text-sm">2</sup>
-          </h6>
+          </p>
         </div>
       </div>
     </div>

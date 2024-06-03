@@ -9,7 +9,7 @@ const Feature = ({ headingHeader, featureList }) => {
         backgroundImage: "url(/bg-leaf.webp)",
         backgroundRepeat: "no-repeat",
         width: "100%",
-        minHeight: "400px",
+        height: "auto",
       }}
       className="w-full py-16 space-y-12"
     >
