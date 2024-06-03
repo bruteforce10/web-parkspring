@@ -44,7 +44,7 @@ export const ImageAbout = () => {
           <a
             href="https://storage.wefinite.com/PARKSPRING_Gading"
             target="_blank"
-            className="bg-gray-50  p-4 rounded-3xl flex gap-4 items-center"
+            className="bg-gray-50 hover:scale-95 transition-all p-4 rounded-3xl flex gap-4 items-center"
           >
             <Image
               src={"/360.svg"}
@@ -53,10 +53,17 @@ export const ImageAbout = () => {
               height={40}
               quality={50}
             />
-            <p className="text-[#5F603A] leading-snug">
+            <p className="text-[#5F603A] leading-snug ">
               Jelajahi PARKSPRING Gading secara Virtual!
             </p>
           </a>
+          <Image
+            src={"/cursor.svg"}
+            alt="cursor VR Parkspring"
+            className="absolute right-0 -bottom-2 -rotate-45"
+            width={25}
+            height={25}
+          />
         </motion.div>
         <a
           href="https://storage.wefinite.com/PARKSPRING_Gading"
@@ -71,7 +78,7 @@ export const ImageAbout = () => {
             quality={50}
           />
           <p className="text-[#5F603A] leading-snug ">
-            Klik Disini untuk Jelajahi PARKSPRING Gading secara Virtual!
+            Jelajahi PARKSPRING Gading secara Virtual!
           </p>
         </a>
       </div>

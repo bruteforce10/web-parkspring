@@ -99,7 +99,7 @@ const Navbar = () => {
           <ul className="menu flex-nowrap gap-10 hidden lg:flex  items-center menu-horizontal">
             <StyleList herf="#vr" text="Virtual Tour" />
             <StyleList herf="#location" text="Location" />
-            <li className="flex  gap-3 ">
+            <li className="flex flex-row  ">
               <a
                 aria-label="link instagram parksrping"
                 href={linkData?.linkInstagram}
