@@ -9,7 +9,8 @@ import { motion, spring } from "framer-motion";
 import { useAppContext } from "../utils/stateContext";
 
 const Navbar = () => {
-  const { isScrolled } = useAppContext();
+  const { isScrolled, data } = useAppContext();
+  const linkData = data?.data?.dataLandingPages[0];
 
   return (
     <motion.div
@@ -97,10 +98,7 @@ const Navbar = () => {
             <StyleList herf="#vr" text="Virtual Tour" />
             <StyleList herf="#location" text="Location" />
             <div className="flex  gap-3 ">
-              <a
-                href="https://www.instagram.com/parkspring.gading/"
-                target="_blank"
-              >
+              <a href={linkData?.linkInstagram} target="_blank">
                 <LuInstagram
                   className={clsx(
                     "text-xl text-[#9b9d59] hover:text-white cursor-pointer transition-all",
@@ -108,7 +106,7 @@ const Navbar = () => {
                   )}
                 />
               </a>
-              <a href="https://www.facebook.com/parkspring.id/" target="_blank">
+              <a href={linkData?.linkFacebook} target="_blank">
                 <GrFacebookOption
                   className={clsx(
                     "text-xl text-[#9b9d59] hover:text-white cursor-pointer transition-all",

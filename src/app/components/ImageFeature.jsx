@@ -6,14 +6,20 @@ import { ImgComparisonSlider } from "@img-comparison-slider/react";
 import { HoverBorderGradient } from "./ui/ButtonOutline";
 import Image from "next/image";
 
-const ImageFeature = () => {
+const ImageFeature = ({ headingMadeBy, descriptionMadeBy }) => {
+  const heading = [
+    headingMadeBy.slice(0, 14),
+    headingMadeBy.slice(14, 30),
+    headingMadeBy.slice(30),
+  ];
+
   return (
     <div className="pt-14">
       <div className="text-center flex flex-col mb-8 gap-4 items-center max-w-[1250px] mx-auto px-8">
         <div className="space-y-6 mb-2">
           <h5 className="text-primary text-lg sm:text-xl">
-            Didesain Oleh <span className="font-semibold">Stanley Winaryo</span>{" "}
-            dari
+            {heading[0]} <span className="font-semibold">{heading[1]}</span>{" "}
+            {heading[2]}
           </h5>
           <Image
             src={"/satu-arsitek.webp"}
@@ -23,7 +29,7 @@ const ImageFeature = () => {
           />
         </div>
         <HoverBorderGradient className={"text-black "}>
-          Nikmati keindahan konsep Japanese Tropical di setiap sudut hunian Anda
+          {descriptionMadeBy}
         </HoverBorderGradient>
       </div>
       <div className="w-fit mx-auto">
@@ -40,9 +46,9 @@ const ImageFeature = () => {
             <path
               stroke="#fff"
               d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2"
-              stroke-width="1"
+              strokeWidth="1"
               fill="#fff"
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
             ></path>
           </svg>
         </ImgComparisonSlider>

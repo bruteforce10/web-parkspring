@@ -8,7 +8,7 @@ import { useAppContext } from "@/app/utils/stateContext";
 const CardFeaute = ({
   image,
   imageDenah,
-  name,
+  title,
   lt,
   lb,
   bathroom,
@@ -35,7 +35,7 @@ const CardFeaute = ({
               setIsOpen({
                 open: true,
                 type: {
-                  name: name,
+                  name: title,
                   lt: lt,
                   lb: lb,
                   bathroom: bathroom,
@@ -56,7 +56,7 @@ const CardFeaute = ({
           </div>
         </div>
         <div className="py-6 px-6 max-sm:px-4 text-primary">
-          <CardHeading name={name} lt={lt} lb={lb} />
+          <CardHeading name={title} lt={lt} lb={lb} />
           <CardFeature
             bathroom={bathroom}
             bedroom={bedroom}

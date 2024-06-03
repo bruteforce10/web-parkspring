@@ -72,7 +72,7 @@ html {
   color: transparent;
   stroke: black;
   opacity: 0.6;
-  stroke-width: 2px;
+  strokewidth: 2px;
   text-shadow: 0 0 5px rgb(234, 234, 234);
   text-transform: uppercase;
   font-size: 80px;

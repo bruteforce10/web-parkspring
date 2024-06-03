@@ -6,122 +6,25 @@ import { StickyScroll } from "./ui/sticky-scroll-reveal";
 import MobileFeatureList from "./ui/MobileFeatureList";
 import { PiMouseScrollThin } from "react-icons/pi";
 
-const content = [
-  {
-    title: "One Gate System",
-    description:
-      "One Gate System memberikan Anda lebih banyak privasi dan menjamin keamanan lingkungan rumah Anda. Dengan keamanan 24 jam, Anda tak perlu lagi merasa khawatir karena PARKSPRING Gading akan selalu terpantau, aman, dan nyaman.",
-    content: (
-      <Image
-        src="/feature/1.webp"
-        width={300}
-        height={300}
-        className="h-auto w-full sm:rounded-lg"
-        alt="linear board demo"
-      />
-    ),
-  },
-  {
-    title: "Multi-Purpose Area",
-    description:
-      "Area serbaguna yang disediakan untuk berbagai aktivitas, seperti acara keluarga, pertemuan komunitas, atau sebagai working space atau kegiatan sosial lainnya. Area ini didesain fleksibel agar dapat digunakan sesuai dengan kebutuhan penghuni.",
-    content: (
-      <div className="h-full w-full  flex items-center justify-center text-white">
-        <Image
-          src="/feature/2.webp"
-          width={300}
-          height={300}
-          className="h-auto w-full sm:rounded-lg"
-          alt="linear board demo"
-        />
-      </div>
-    ),
-  },
-  {
-    title: "Natural Playground",
-    description:
-      "Sarana bermain anak di PARKSPRING Gading dirancang khusus dengan konsep yang menyatu dengan alam. Anak-anak dapat bermain sembari menjelajahi kreativitasnya. Dengan berbagai macam permainan, anak-anak dapat meningkatkan kemampuan motorik dan ketahanan tubuhnya di sini.",
-    content: (
-      <div className="h-full w-full  flex items-center justify-center text-white">
-        <Image
-          src="/feature/3.webp"
-          width={300}
-          height={300}
-          className="h-auto w-full sm:rounded-lg"
-          alt="linear board demo"
-        />
-      </div>
-    ),
-  },
-  {
-    title: "Outdoor Gym",
-    description:
-      "Fasilitas gym dengan konsep terbuka yang memungkinkan penghuni untuk berolahraga dengan berbagai macam equipment sambil menikmati udara segar.",
-    content: (
-      <div className="h-full w-full  flex items-center justify-center text-white">
-        <Image
-          src="/feature/4.webp"
-          width={300}
-          height={300}
-          className="h-auto w-full sm:rounded-lg"
-          alt="linear board demo"
-        />
-      </div>
-    ),
-  },
-  {
-    title: "Jogging Path",
-    description:
-      "Jogging Path memberikan kesempatan bagi penghuni untuk melakukan aktivitas olahraga atau sekadar berjalan santai tanpa harus pergi jauh keluar komplek rumah.",
-    content: (
-      <div className="h-full w-full  flex items-center justify-center text-white">
-        <Image
-          src="/feature/5.webp"
-          width={300}
-          height={300}
-          className="h-auto w-full sm:rounded-lg"
-          alt="linear board demo"
-        />
-      </div>
-    ),
-  },
-  {
-    title: "Zen Garden",
-    description:
-      "Bukan hanya rumah secara fisik yang Anda butuhkan, namun juga rumah untuk jiwa Anda. Zen Garden diciptakan untuk me-recharge jiwa Anda dari padatnya kehidupan sehari-hari.",
-    content: (
-      <div className="h-full w-full  flex items-center justify-center text-white">
-        <Image
-          src="/feature/6.webp"
-          width={300}
-          height={300}
-          className="h-auto w-full sm:rounded-lg"
-          alt="linear board demo"
-        />
-      </div>
-    ),
-  },
-  {
-    title: "Hidden Yoga Spot",
-    description:
-      "Lepaskan sejenak penat Anda, and reconnect with yourself. Dengan adanya Hidden Yoga Spot, memulai #BalanceLiving terasa sangat mudah.",
-    content: (
-      <div className="h-full w-full  flex items-center justify-center text-white">
-        <Image
-          src="/feature/7.webp"
-          width={300}
-          height={300}
-          className="h-auto w-full sm:rounded-lg"
-          alt="linear board demo"
-        />
-      </div>
-    ),
-  },
-];
-
-const FeatureList = () => {
+const FeatureList = ({ headingFeature, listFeature }) => {
   const ref = React.useRef(null);
   const isInView = useInView(ref);
+
+  const transformedData = listFeature.map((item, index) => ({
+    title: item?.title,
+    description: item?.description,
+    content: (
+      <div className="h-full w-full flex items-center justify-center text-white">
+        <Image
+          src={item?.image?.url}
+          width={300}
+          height={300}
+          className="h-auto w-full sm:rounded-lg"
+          alt="linear board demo"
+        />
+      </div>
+    ),
+  }));
 
   return (
     <section
@@ -147,7 +50,7 @@ const FeatureList = () => {
           ref={ref}
           className="text-center text-2xl sm:text-4xl font-semibold w-full md:w-[70%] lg:w-[40%] mx-auto leading-tight"
         >
-          Quality Time dengan Berbagai Fasilitas Unggulan
+          {headingFeature}
         </h2>
         <motion.div
           initial={{ width: "0%" }}
@@ -158,14 +61,14 @@ const FeatureList = () => {
       </div>
 
       <div className="relative">
-        <StickyScroll content={content} />
+        <StickyScroll content={transformedData} />
         <div className="absolute top-8 animate-bounce  flex right-[10%] xl:right-[20%]">
           <p className="text-md animate-pulse">Scroll Down to See</p>
           <PiMouseScrollThin className="w-6 h-6 text-secondary" />
         </div>
       </div>
 
-      <MobileFeatureList content={content} />
+      <MobileFeatureList content={transformedData} />
     </section>
   );
 };

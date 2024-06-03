@@ -1,10 +1,21 @@
+"use client";
 import Image from "next/image";
 import React from "react";
-import { fontPrimary } from "../utils/FontPrimary";
 import { FaLocationDot, FaCalendarDays, FaClock } from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io";
+import { useAppContext } from "../utils/stateContext";
 
 const Footer = () => {
+  const { data } = useAppContext();
+  const noWhatsapp = data?.data?.dataLandingPages?.[0]?.noWhatsapp;
+  function formatPhoneNumber(phoneNumber) {
+    const part1 = phoneNumber?.slice(0, 4);
+    const part2 = phoneNumber?.slice(4, 8);
+    const part3 = phoneNumber?.slice(8, 12);
+
+    return `${part1}-${part2}-${part3}`;
+  }
+
   return (
     <div className="h-screen md:pt-[7rem] max-md:py-12 text-primary">
       <div className="max-w-[1250px] mx-auto px-8 flex max-md:flex-col max-md:justify-center justify-between  gap-8 md:gap-20">
@@ -68,7 +79,7 @@ const Footer = () => {
               <div className="flex items-center gap-2">
                 <IoLogoWhatsapp className="text-xl " />
                 <p className="text-lg font-light leading-relaxed">
-                  0817-9000-104
+                  {formatPhoneNumber(noWhatsapp)}
                 </p>
               </div>
             </div>

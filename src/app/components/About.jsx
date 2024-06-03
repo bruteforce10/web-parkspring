@@ -2,7 +2,13 @@ import React from "react";
 import { ImageAbout } from "./ui/ImageAbout";
 import Button from "./ui/Button";
 
-const About = () => {
+const About = ({ headingAboutUs, descriptionAboutUs }) => {
+  const arrayHeading = headingAboutUs.split(" ");
+  const combinedHeading = [
+    arrayHeading.slice(0, 3).join(" "),
+    arrayHeading.slice(3).join(" "),
+  ];
+
   return (
     <section
       id="about"
@@ -13,16 +19,11 @@ const About = () => {
         <div className="space-y-1">
           <h5 className="text-primary font-medium text-xl">About Us</h5>
           <h3 className="text-4xl leading-normal font-semibold">
-            Balance Living at <br className="max-md:hidden" /> PARKSPRING Gading
+            {combinedHeading[0]} <br className="max-md:hidden" />{" "}
+            {[combinedHeading[1]]}
           </h3>
         </div>
-        <p className="leading-relaxed">
-          PARKSPRING Gading merupakan hunian tapak modern berkonsep Japanese
-          Tropical di area Kelapa Gading. Menjadi proyek hunian terbaru
-          persembahan dari Karsindo Group, PARKSPRING Gading juga merupakan
-          hunian terakhir di kawasan Kelapa Gading. Awali hidup seimbang Anda
-          bersama PARKSPRING Gading!
-        </p>
+        <p className="leading-relaxed">{descriptionAboutUs}</p>
         <Button>Lean More</Button>
       </div>
     </section>

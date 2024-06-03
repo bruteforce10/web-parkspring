@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import About from "./components/About";
 import Feature from "./components/Feature";
 import FeatureList from "./components/FeatureList";
@@ -10,18 +11,34 @@ import LocationMap from "./components/LocationMap";
 import TextDirect from "./components/TextDirect";
 import TypeSection from "./components/TypeSection";
 
-export default function Home() {
+async function getData() {
+  const res = await fetch("https://parkspring.vercel.app/api/data-web", {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  revalidatePath("/");
+
+  return res.json();
+}
+
+export default async function Home() {
+  const { data } = await getData();
+  const { dataLandingPages } = data;
+
   return (
     <main>
       <Header />
-      <Feature />
-      <About />
+      <Feature {...dataLandingPages[0]} />
+      <About {...dataLandingPages[0]} />
       <TextDirect />
-      <ImageFeature />
-      <Location />
-      <FeatureList />
-      <HookSection />
-      <TypeSection />
+      <ImageFeature {...dataLandingPages[0]} />
+      <Location {...dataLandingPages[0]} />
+      <FeatureList {...dataLandingPages[0]} />
+      <HookSection {...dataLandingPages[0]} />
+      <TypeSection {...dataLandingPages[0]} />
       <LocationMap />
       <Footer />
     </main>

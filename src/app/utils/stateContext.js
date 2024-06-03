@@ -7,6 +7,22 @@ const appContext = createContext();
 const ContextProvider = ({ children }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [data, setData] = useState(null);
+
+  const getData = async () => {
+    try {
+      const res = await fetch("https://parkspring.vercel.app/api/data-web");
+
+      if (!res.ok) {
+        throw new Error("Failed to fetch data");
+      }
+
+      const data = await res.json();
+      setData(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +32,7 @@ const ContextProvider = ({ children }) => {
         setIsScrolled(false);
       }
     };
+    getData();
 
     window.addEventListener("scroll", handleScroll);
 
@@ -25,7 +42,7 @@ const ContextProvider = ({ children }) => {
   }, []);
   return (
     <appContext.Provider
-      value={{ isScrolled, setIsScrolled, isOpen, setIsOpen }}
+      value={{ isScrolled, setIsScrolled, isOpen, setIsOpen, data, setData }}
     >
       {children}
     </appContext.Provider>

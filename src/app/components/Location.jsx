@@ -30,23 +30,23 @@ const dataLocation = [
   },
 ];
 
-const Location = () => {
+const Location = ({ headingLocation, listLocation }) => {
   return (
     <div className="py-16 sm:mt-8 -mt-4 bg-[#F4F4F4]">
       <div className="px-8 max-w-[1250px] mx-auto sm:space-y-12 space-y-8">
         <div className="flex justify-center flex-col items-center max-sm:scale-[85%]">
           <LogoParkspring />
           <p className="text-[#304824] font-light text-xl text-center">
-            Memberikan akses yang mudah untuk berbagai aktivitas Anda
+            {headingLocation}
           </p>
         </div>
         <div className="grid md:grid-cols-2 grid-cols-1  gap-14 justify-center ">
           <div className="space-y-12">
-            {dataLocation.map((item, index) => (
+            {listLocation.map((item, index) => (
               <ListLocation
                 key={index}
-                title={item.title}
-                list={item.list}
+                title={item.titleDuration}
+                list={item.location}
                 duration={index}
               />
             ))}

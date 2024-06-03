@@ -9,46 +9,27 @@ const data = [
   {
     image: "/type-house/hiro.webp",
     imageDenah: "/type-house/denah/hiro.webp",
-    name: "Hiro",
-    description: "The key to finding a happy and healthy life is balance.",
     linkVR: "https://storage.wefinite.com/PARKSPRING_Gading/",
-    electric: 2200,
-    lt: 60,
-    lb: 74,
-    bathroom: 1,
-    bedroom: 2,
-    carport: 1,
   },
   {
     image: "/type-house/villa.webp",
     imageDenah: "/type-house/denah/villa.webp",
-    name: "Villa",
-    description: "It's time to start living your life you've always imagined.",
     linkVR: "https://storage.wefinite.com/PARKSPRING_Gading/",
-    electric: 2200,
-    lt: 60,
-    lb: 91,
-    bathroom: "2+1",
-    bedroom: "3+1",
-    carport: 1,
   },
   {
     image: "/type-house/grand.webp",
     imageDenah: "/type-house/denah/grand-fix.webp",
-    name: "Grand",
-    description: "It's a place where you make memories with your family.",
     linkVR: "https://storage.wefinite.com/PARKSPRING_Gading/",
-    electric: 3500,
-    lt: 80,
-    lb: 111,
-    bathroom: "3+1",
-    bedroom: "3+1",
-    carport: 2,
   },
 ];
 
-const TypeSection = () => {
+const TypeSection = ({ headingTypeUnit, typeHouse }) => {
   const { isOpen } = useAppContext();
+
+  const combinedData = typeHouse.map((item, index) => ({
+    ...item,
+    ...data[index],
+  }));
 
   return (
     <>
@@ -60,12 +41,11 @@ const TypeSection = () => {
             </p>
             <LogoParkspring />
             <p className="text-light text-lg mt-4 sm:mt-2 tracking-wide max-md:text-center">
-              PARKSPRING Gading Memiliki 3 tipe unit untuk membantu mewujudkan
-              hunian impian Anda!
+              {headingTypeUnit}
             </p>
           </div>
           <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  gap-8 sm:mt-16 mt-12 ">
-            {data.map((item, index) => {
+            {combinedData.map((item, index) => {
               return (
                 <React.Fragment key={index}>
                   <CardFeaute {...item} />

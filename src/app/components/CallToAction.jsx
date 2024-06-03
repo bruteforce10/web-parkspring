@@ -1,20 +1,18 @@
 "use client";
 import React from "react";
 import { useAppContext } from "../utils/stateContext";
-import ButtonHook from "./ui/ButtonHook";
-import { motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa6";
 
 const CallToAction = () => {
-  const { isScrolled } = useAppContext();
-  const [hide, isHide] = React.useState(false);
+  const { data } = useAppContext();
+  const noWhatsapp = data?.data?.dataLandingPages[0].noWhatsapp.slice(1);
 
   return (
     <React.Fragment>
       <div
         onClick={() =>
           window.open(
-            "https://api.whatsapp.com/send?phone=%20628179000104&text=Hai,%20saya%20dapat%20info%20dari%20website%20PARKSPRING%20Gading"
+            `https://api.whatsapp.com/send?phone=%2062${noWhatsapp}&text=Hai,%20saya%20dapat%20info%20dari%20website%20PARKSPRING%20Gading`
           )
         }
         className="bg-[#289b52]  p-3 rounded-full w-fit max-sm:mr-10 mr-16 mb-12 max-sm:mb-10 ml-auto relative cursor-pointer"
