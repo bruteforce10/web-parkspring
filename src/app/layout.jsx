@@ -18,7 +18,7 @@ export const metadata = {
     title: "PARKSPRING Gading, Rumah 1,5 M-an Japanese Tropical",
     description:
       "Fasilitas PARKSPRING Gading · One Gate System & 24 Hours Security with Security Hub · Zen Garden · Fish Feeding Pond · Hidden Yoga Spot · Children Playground.",
-    image: "https://parkspring.vercel.app/opengraph-image.png",
+    images: ["https://parkspring.vercel.app/opengraph-image.png"],
   },
 };
 
