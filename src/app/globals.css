@@ -107,3 +107,9 @@ html {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* swiper */
+
+:root {
+  --swiper-theme-color: #e5e5e5 !important;
+}

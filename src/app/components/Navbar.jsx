@@ -7,6 +7,7 @@ import { GrFacebookOption } from "react-icons/gr";
 import clsx from "clsx";
 import { motion, spring } from "framer-motion";
 import { useAppContext } from "../utils/stateContext";
+import Link from "next/link";
 
 const Navbar = () => {
   const { isScrolled, data } = useAppContext();
@@ -24,14 +25,16 @@ const Navbar = () => {
     >
       <div className="navbar px-8 max-w-[1250px] mx-auto">
         <div className="navbar-start">
-          <Image
-            src="/logo-parkspring.svg"
-            alt="logo-parkspring"
-            className="w-[60%] md:hidden block object-contain z-50"
-            width={50}
-            height={50}
-            quality={50}
-          />
+          <Link href="/">
+            <Image
+              src="/logo-parkspring.svg"
+              alt="logo-parkspring"
+              className="w-[60%] md:hidden block object-contain z-50"
+              width={50}
+              height={50}
+              quality={50}
+            />
+          </Link>
           <div className="hidden lg:block">
             <ul className="menu gap-10 menu-horizontal">
               <StyleList herf="#about" text="About" />
@@ -42,14 +45,16 @@ const Navbar = () => {
         </div>
         <div className="navbar-center">
           <motion.div animate={{ scale: isScrolled ? 0.75 : 1 }}>
-            <Image
-              src="/logo-parkspring.svg"
-              alt="logo-parkspring"
-              className="w-[95%] md:block hidden object-contain z-50"
-              width={50}
-              height={50}
-              quality={50}
-            />
+            <Link href="/">
+              <Image
+                src="/logo-parkspring.svg"
+                alt="logo-parkspring"
+                className="w-[95%] md:block hidden object-contain z-50"
+                width={50}
+                height={50}
+                quality={50}
+              />
+            </Link>
           </motion.div>
         </div>
         <div className="navbar-end z-50">

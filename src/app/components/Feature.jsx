@@ -8,6 +8,7 @@ const Feature = ({ headingHeader, featureList }) => {
       style={{
         backgroundImage: "url(/bg-leaf.webp)",
         backgroundRepeat: "no-repeat",
+        aspectRatio: "auto",
         width: "100%",
         height: "auto",
       }}
