@@ -10,6 +10,7 @@ import Location from "./components/Location";
 import LocationMap from "./components/LocationMap";
 import TextDirect from "./components/TextDirect";
 import TypeSection from "./components/TypeSection";
+import NewsLetterSection from "./components/NewsLetterSection";
 
 async function getData() {
   const res = await fetch("https://parkspring.vercel.app/api/data-web", {
@@ -39,6 +40,7 @@ export default async function Home() {
       <FeatureList {...dataLandingPages[0]} />
       <HookSection {...dataLandingPages[0]} />
       <TypeSection {...dataLandingPages[0]} />
+      <NewsLetterSection />
       <LocationMap />
       <Footer />
     </main>

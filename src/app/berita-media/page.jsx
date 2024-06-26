@@ -1,12 +1,42 @@
 import React from "react";
-import HeaderSlide from "../components/newsSection/HeaderSlide";
+import HeaderSlide from "./_components/HeaderSlide";
+import TabSection from "./_components/TabSection";
+import BreadCrumpSearch from "./_components/BreadCrumpSearch";
+import CardSectionHorizontal from "./_components/CardSectionHorizontal";
+import HookSection from "../components/HookSection";
+import { revalidatePath } from "next/cache";
 
-const pageMedia = () => {
-  return (
-    <main className="px-8 max-w-[1250px] mx-auto container h-[30000px]">
-      <HeaderSlide />
-    </main>
+const getData = async (
+  orderBy = "createdAt_ASC",
+  category = "",
+  first = "",
+  skip = ""
+) => {
+  const res = await fetch(
+    `http://localhost:3000/api/news?orderBy=${orderBy}&category=${category}&first=${first}&skip=${skip}`,
+    {
+      cache: "force-cache",
+    }
   );
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  const data = await res.json();
+  revalidatePath("/berita-media");
+  return data;
 };
 
-export default pageMedia;
+export default async function pageMedia({ searchParams }) {
+  const { orderBy, category, first, skip } = searchParams;
+  const { data } = await getData(orderBy, category, first, skip);
+
+  return (
+    <main className="mt-8">
+      <BreadCrumpSearch />
+      <HeaderSlide />
+      <TabSection />
+      <CardSectionHorizontal {...data} />
+      <HookSection />
+    </main>
+  );
+}

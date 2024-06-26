@@ -113,3 +113,9 @@ html {
 :root {
   --swiper-theme-color: #e5e5e5 !important;
 }
+
+@media (max-width: 768px) {
+  :root {
+    --swiper-theme-color: #3f4d31 !important;
+  }
+}

@@ -8,6 +8,8 @@ const ContextProvider = ({ children }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState(null);
+  const [active, setActive] = useState(0);
+  const [filterDate, setFilterDate] = useState(null);
 
   const getData = async () => {
     try {
@@ -42,7 +44,18 @@ const ContextProvider = ({ children }) => {
   }, []);
   return (
     <appContext.Provider
-      value={{ isScrolled, setIsScrolled, isOpen, setIsOpen, data, setData }}
+      value={{
+        isScrolled,
+        setIsScrolled,
+        isOpen,
+        setIsOpen,
+        data,
+        setData,
+        active,
+        setActive,
+        filterDate,
+        setFilterDate,
+      }}
     >
       {children}
     </appContext.Provider>
