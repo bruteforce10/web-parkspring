@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect } from "react";
 
-const Pagination = () => {
+const Pagination = ({ lengthInitial }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const currentParams = new URLSearchParams(searchParams);

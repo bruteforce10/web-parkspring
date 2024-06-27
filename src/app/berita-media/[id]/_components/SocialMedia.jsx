@@ -1,4 +1,6 @@
 "use client";
+
+import { useParams } from "next/navigation";
 import React from "react";
 import {
   EmailIcon,
@@ -18,7 +20,9 @@ import {
 } from "react-share";
 
 const SocialMedia = () => {
-  const url = window?.location?.href;
+  const params = useParams();
+
+  const url = `https://www.parkspring.co.id/berita-media/${params?.id}`;
 
   return (
     <div className="space-x-4 space-y-4">
@@ -41,9 +45,6 @@ const SocialMedia = () => {
       <TelegramShareButton url={url}>
         <TelegramIcon size={42} round={true} />
       </TelegramShareButton>
-      <PinterestShareButton url={url}>
-        <PinterestIcon size={42} round={true} />
-      </PinterestShareButton>
     </div>
   );
 };

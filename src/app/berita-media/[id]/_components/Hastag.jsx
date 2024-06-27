@@ -1,10 +1,13 @@
 import React from "react";
 
-const Hastag = () => {
+const Hastag = ({ data }) => {
   return (
     <div className="space-x-2">
-      <div className="badge badge-primary badge-outline">#rumah</div>
-      <div className="badge badge-primary badge-outline">#impian</div>
+      {data?.map((item) => (
+        <div className="badge badge-primary badge-outline" key={item}>
+          {item}
+        </div>
+      ))}
     </div>
   );
 };

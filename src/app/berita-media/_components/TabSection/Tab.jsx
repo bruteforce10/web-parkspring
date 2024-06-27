@@ -9,6 +9,17 @@ const Tab = () => {
   const dataTab = ["All", "Article", "Event", "Media_Relase", "News"];
   const [activeTab, setActiveTab] = React.useState("All");
 
+  React.useEffect(() => {
+    const currentParams = new URLSearchParams(searchParams);
+    currentParams.delete("category");
+    const newUrl = currentParams.toString()
+      ? `/berita-media?${currentParams.toString()}`
+      : "/berita-media";
+
+    router.replace(newUrl, { scroll: false });
+    setActiveTab("All");
+  }, []);
+
   const handleClick = (name) => {
     if (activeTab !== name) {
       setActiveTab(name);

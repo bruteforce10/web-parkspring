@@ -1,10 +1,12 @@
 "use client";
-import { useRouter } from "next/navigation";
+import clsx from "clsx";
+import { useParams, useRouter } from "next/navigation";
 import React, { useRef } from "react";
 
 const BreadCrumpSearch = () => {
   const inputRef = useRef(null);
   const router = useRouter();
+  const params = useParams();
 
   const handleKeyDown = (event) => {
     if (event.keyCode === 13) {
@@ -35,7 +37,10 @@ const BreadCrumpSearch = () => {
             </a>
           </li>
           <li>
-            <a className="font-medium">
+            <a
+              href="/berita-media"
+              className={clsx("font-medium", params.id && "font-normal")}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -52,6 +57,26 @@ const BreadCrumpSearch = () => {
               Portal Berita
             </a>
           </li>
+          {params.id && (
+            <li>
+              <a href={`/berita-media/${params.id}`} className="font-medium ">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  className="h-4 w-4 stroke-current mr-2 "
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
+                  ></path>
+                </svg>
+                Berita Saat ini
+              </a>
+            </li>
+          )}
         </ul>
       </div>
       <label className="input max-sm:w-full  w-auto rounded-xl input-bordered flex items-center gap-2">
@@ -64,9 +89,12 @@ const BreadCrumpSearch = () => {
         />
         <svg
           xmlns="http://www.w3.org/2000/svg"
+          onClick={() =>
+            router.push(`/berita-media/search?q=${inputRef.current.value}`)
+          }
           viewBox="0 0 16 16"
           fill="currentColor"
-          className="h-6 w-6 opacity-70"
+          className="h-6 w-6 opacity-70 cursor-pointer"
         >
           <path
             fill="#5F603A"

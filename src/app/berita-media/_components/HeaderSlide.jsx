@@ -1,16 +1,30 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useTransition } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { IoMdArrowDropright, IoMdArrowDropleft } from "react-icons/io";
-import SlideDescription from "./SlideDescription";
 import Image from "next/image";
-import Link from "next/link";
+import { getAll } from "@/app/utils/getAll";
+import dateFormat from "@/app/utils/dateFormat";
+import { useRouter } from "next/navigation";
 
 const HeaderSlide = () => {
   const swiperRef = useRef(null);
+  const [isPending, startTransition] = useTransition();
+  const [data, setData] = React.useState([]);
+  const router = useRouter();
+
+  useEffect(() => {
+    startTransition(() => {
+      getAll("createdAt_ASC").then((res) => {
+        const sortedArray = res?.articels.sort((a, b) => a - b);
+        const topThree = sortedArray.slice(0, 3);
+        setData(topThree);
+      });
+    });
+  }, []);
 
   const handleNext = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -24,138 +38,75 @@ const HeaderSlide = () => {
     }
   };
 
-  return (
-    <>
-      <section
-        id="desktop"
-        className="max-md:hidden sm:px-8 px-4 max-w-[1250px] mx-auto container"
-      >
-        <Swiper
-          ref={swiperRef}
-          spaceBetween={50}
-          loop={true}
-          slidesPerView={1}
-          centeredSlides={true}
-          className="rounded-3xl relative"
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }} 
-          pagination={{ 
-            clickable: true,
-          }}
-          navigation={true}
-          modules={[Autoplay, Pagination, Navigation]}
-        >
-          <SlideDescription />
+  if (isPending) {
+    return (
+      <div className="skeleton h-[400px] max-w-[1250px] mx-auto container max-md:hidden"></div>
+    );
+  }
 
-          <div className="absolute bottom-6 right-6  z-[100]">
-            <button onClick={handlePrev}>
-              <IoMdArrowDropleft className="text-6xl  text-base-layout hover:scale-90 transition-all" />
-            </button>
-            <button onClick={handleNext}>
-              <IoMdArrowDropright className="text-6xl -ml-5 text-base-layout hover:scale-90 transition-all" />
-            </button>
-          </div>
-        </Swiper>
-      </section>
-      <section
-        id="mobile"
-        className="max-md:block hidden sm:px-8 px-4 max-w-[1250px] mx-auto container"
+  return (
+    <section
+      id="desktop"
+      className="max-md:hidden sm:px-8 px-4 max-w-[1250px] mx-auto container"
+    >
+      <Swiper
+        ref={swiperRef}
+        loop={true}
+        slidesPerView={1}
+        centeredSlides={true}
+        className="rounded-3xl relative"
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
       >
-        <Swiper
-          ref={swiperRef}
-          spaceBetween={50}
-          loop={true}
-          slidesPerView={1}
-          centeredSlides={true}
-          className="rounded-3xl relative"
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
-          modules={[Autoplay, Pagination, Navigation]}
-        >
-          <SwiperSlide className="pb-12">
-            <Image
-              src="/slider-2.webp"
-              alt="image-about"
-              className="w-full rounded-xl"
-              width={400}
-              height={400}
-            />
-            <div className="space-y-4 mt-6">
-              <div className="flex gap-4 items-center">
-                <div className="badge badge-secondary">News</div>
-                <div className="badge badge-secondary">Article</div>
-                <p className="text-black/70">22 Agustus 2024</p>
+        {data &&
+          data?.map((item, index) => (
+            <SwiperSlide key={index}>
+              <Image
+                src={item?.cover?.url}
+                alt={item?.cover?.title}
+                className="w-full "
+                width={400}
+                height={400}
+              />
+              <div className="absolute py-16 bg-gradient-to-t from-black/50 to-black/0 text-white w-full  bottom-0 px-8">
+                <div className="max-w-[650px] space-y-4">
+                  <div className="space-y-2">
+                    <h3 className="text-3xl font-semibold">{item?.title}</h3>
+                    <h4 className="text-xl text-[#f6c461] ">
+                      {dateFormat(item?.createdAt)}
+                    </h4>
+                  </div>
+                  <p className="text-base opacity-90 font-light">
+                    {item?.metaDescription}
+                  </p>
+                  <button
+                    onClick={() => router.push(`/berita-media/${item?.slug}`)}
+                    className="btn btn-outline text-white"
+                  >
+                    Lean More
+                  </button>
+                </div>
               </div>
-              <Link href={"/"} className="block hover:opacity-75">
-                <h2 className="font-semibold text-2xl ">
-                  Rumah Mewah dan Murah di Kelapa Gading
-                </h2>
-              </Link>
-              <p className="leading-relaxed line-clamp-2 lg:line-clamp-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                dolorem, molestiae quia dolorum, porro magnam vero consequuntur
-                quam enim quidem nihil quisquam soluta? Nemo, reiciendis?
-                Quibusdam sapiente reiciendis aliquam facilis? Nulla, at?
-                Expedita aliquid amet voluptas, voluptatibus eveniet, fugit illo
-                quibusdam, qui sed ab architecto maiores fugiat saepe minus
-                atque. Lorem ipsum dolor
-              </p>
-              <Link
-                href={"/"}
-                className="text-primary underline-offset-2 underline hover:opacity-75"
-              >
-                Read More
-              </Link>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className="pb-12">
-            <Image
-              src="/slider-2.webp"
-              alt="image-about"
-              className="w-full rounded-xl"
-              width={400}
-              height={400}
-            />
-            <div className="space-y-4 mt-6">
-              <div className="flex gap-4 items-center">
-                <div className="badge badge-secondary">News</div>
-                <div className="badge badge-secondary">Article</div>
-                <p className="text-black/70">22 Agustus 2024</p>
-              </div>
-              <Link href={"/"} className="block hover:opacity-75">
-                <h2 className="font-semibold text-2xl ">
-                  Rumah Mewah dan Murah di Kelapa Gading
-                </h2>
-              </Link>
-              <p className="leading-relaxed line-clamp-2 lg:line-clamp-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                dolorem, molestiae quia dolorum, porro magnam vero consequuntur
-                quam enim quidem nihil quisquam soluta? Nemo, reiciendis?
-                Quibusdam sapiente reiciendis aliquam facilis? Nulla, at?
-                Expedita aliquid amet voluptas, voluptatibus eveniet, fugit illo
-                quibusdam, qui sed ab architecto maiores fugiat saepe minus
-                atque. Lorem ipsum dolor
-              </p>
-              <Link
-                href={"/"}
-                className="text-primary underline-offset-2 underline hover:opacity-75"
-              >
-                {" "}
-                Read More
-              </Link>
-            </div>
-          </SwiperSlide>
-        </Swiper>
-      </section>
-    </>
+            </SwiperSlide>
+          ))}
+
+        <div className="absolute bottom-6 right-6  z-[100]">
+          <button onClick={handlePrev}>
+            <IoMdArrowDropleft className="text-6xl  text-base-layout hover:scale-90 transition-all" />
+          </button>
+          <button onClick={handleNext}>
+            <IoMdArrowDropright className="text-6xl -ml-5 text-base-layout hover:scale-90 transition-all" />
+          </button>
+        </div>
+      </Swiper>
+    </section>
   );
 };
 
