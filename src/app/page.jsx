@@ -40,7 +40,7 @@ export default async function Home() {
       <FeatureList {...dataLandingPages[0]} />
       <HookSection {...dataLandingPages[0]} />
       <TypeSection {...dataLandingPages[0]} />
-      {/* <NewsLetterSection /> */}
+      <NewsLetterSection />
       <LocationMap />
       <Footer />
     </main>
