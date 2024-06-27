@@ -19,6 +19,21 @@ const getData = async (params) => {
   const data = await res.json();
   return data;
 };
+
+export async function generateMetaData({ params }) {
+  const response = await getData(params);
+  const { data } = response;
+  const { articel } = data;
+  console.log(articel);
+  return {
+    title: articel?.metaTitle,
+    description: articel?.metaDescription,
+    openGraph: {
+      images: articel?.cover?.url,
+    },
+  };
+}
+
 export default async function pageBerita({ params }) {
   const response = await getData(params);
   const { data } = response;
