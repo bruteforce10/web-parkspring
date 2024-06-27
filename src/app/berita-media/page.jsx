@@ -14,7 +14,7 @@ const getData = async (
   skip = ""
 ) => {
   const res = await fetch(
-    `http://localhost:3000/api/news?orderBy=${orderBy}&category=${category}&first=${first}&skip=${skip}`,
+    `https://parkspring.vercel.app/api/news?orderBy=${orderBy}&category=${category}&first=${first}&skip=${skip}`,
     {
       cache: "force-cache",
     }

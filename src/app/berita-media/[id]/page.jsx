@@ -7,9 +7,12 @@ import dateFormat from "@/app/utils/dateFormat";
 import BreadCrumpSearch from "../_components/BreadCrumpSearch";
 
 const getData = async (params) => {
-  const res = await fetch(`http://localhost:3000/api/news/${params.id}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `https://parkspring.vercel.app/api/news/${params.id}`,
+    {
+      cache: "no-store",
+    }
+  );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }

@@ -3,7 +3,7 @@ import CardNewsHorizontal from "../_components/CardSectionHorizontal/CardNewsHor
 import InputSearch from "./_component/inputSearch";
 
 const getData = async (q) => {
-  const res = await fetch(`http://localhost:3000/api/${q}`, {
+  const res = await fetch(`https://parkspring.vercel.app/api/${q}`, {
     cache: "no-store",
   });
   if (!res.ok) {
