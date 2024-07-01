@@ -21,6 +21,20 @@ const getData = async (params) => {
   return data;
 };
 
+// CONTOH AJA
+export const metadata = {
+  metadataBase: new URL("https://parkspring.vercel.app"),
+  title: "Psadsaads",
+  description: "sdaadsasddsa",
+  // kalo beda pakai ini
+  openGraph: {
+    images: "/opengraph-image.png",
+    title: "PARKSPRING Gading, Rumah 1,5 M-an Japanese Tropical",
+    description:
+      "Fasilitas PARKSPRING Gading · One Gate System & 24 Hours Security with Security Hub · Zen Garden · Fish Feeding Pond · Hidden Yoga Spot · Children Playground.",
+  },
+};
+
 export async function generateMetaData({ params }) {
   const response = await getData(params);
   const { data } = response;
