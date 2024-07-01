@@ -5,6 +5,7 @@ import Hastag from "./_components/Hastag";
 import SideSection from "./_components/SideSection";
 import dateFormat from "@/app/utils/dateFormat";
 import BreadCrumpSearch from "../_components/BreadCrumpSearch";
+import { getContentFragment } from "@/app/utils/contentFragment";
 
 const getData = async (params) => {
   const res = await fetch(
@@ -61,10 +62,15 @@ export default async function pageBerita({ params }) {
             height={800}
           />
 
-          <div
-            dangerouslySetInnerHTML={{ __html: articel?.description?.html }}
-          ></div>
-          <div className=" mt-16 space-y-2">
+          <article>
+            {articel?.description?.raw?.children.map((typeObj, index) => {
+              const children = typeObj?.children.map((item, itemindex) =>
+                getContentFragment(itemindex, item.text, item)
+              );
+              return getContentFragment(index, children, typeObj, typeObj.type);
+            })}
+          </article>
+          <div className=" mt-16 max-sm:mt-8 max-sm:space-y-4 space-y-2">
             <Hastag data={articel?.hastag} />
             <SocialMedia />
           </div>

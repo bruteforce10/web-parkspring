@@ -15,7 +15,7 @@ export async function GET(req, { params }) {
         metaTitle
         title
         description {
-          html
+          raw
         }
           cover {
       url
