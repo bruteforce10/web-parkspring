@@ -9,7 +9,7 @@ const CardSide = ({ title, cover, category, createdAt, slug }) => {
       <div className="w-full">
         <Image
           src={cover?.url}
-          alt={cover?.name}
+          alt={cover?.fileName}
           className="rounded-xl w-full  h-[150px] object-center object-cover"
           width={800}
           height={800}

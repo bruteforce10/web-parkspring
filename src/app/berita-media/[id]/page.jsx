@@ -56,7 +56,7 @@ export default async function pageBerita({ params }) {
 
           <Image
             src={articel?.cover?.url}
-            alt="bg-tab"
+            alt={articel?.fileName}
             className="rounded-xl w-full my-7 object-center object-cover"
             width={800}
             height={800}
