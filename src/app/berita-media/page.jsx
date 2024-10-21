@@ -8,7 +8,7 @@ import { revalidatePath } from "next/cache";
 import HeaderSlideMobile from "./_components/HeaderSlideMobile";
 
 const getData = async (
-  orderBy = "createdAt_ASC",
+  orderBy = "createdAt_DESC",
   category = "",
   first = "",
   skip = ""

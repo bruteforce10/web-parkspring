@@ -18,7 +18,7 @@ const HeaderSlide = () => {
 
   useEffect(() => {
     startTransition(() => {
-      getAll("createdAt_ASC").then((res) => {
+      getAll("createdAt_DESC").then((res) => {
         const sortedArray = res?.articels.sort((a, b) => a - b);
         const topThree = sortedArray.slice(0, 3);
         setData(topThree);
@@ -54,7 +54,7 @@ const HeaderSlide = () => {
         loop={true}
         slidesPerView={1}
         centeredSlides={true}
-        className="rounded-3xl relative"
+        className="rounded-3xl  relative"
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,
@@ -71,9 +71,9 @@ const HeaderSlide = () => {
               <Image
                 src={item?.cover?.url}
                 alt={item?.cover?.title}
-                className="w-full "
-                width={400}
-                height={400}
+                className="w-full h-screen  object-cover"
+                width={2000}
+                height={2000}
               />
               <div className="absolute py-16 bg-gradient-to-t from-black/50 to-black/0 text-white w-full  bottom-0 px-8">
                 <div className="max-w-[650px] space-y-4">

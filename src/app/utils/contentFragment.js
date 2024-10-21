@@ -45,6 +45,19 @@ export const getContentFragment = (index, text, obj, type) => {
           ))}
         </h3>
       );
+    case "link":
+      return (
+        <a
+          key={index}
+          href={obj.url}
+          target="_blank"
+          className="text-secondary hover:underline cursor-pointer"
+        >
+          {modifiedText.map((item, i) => (
+            <React.Fragment key={i}>{item}</React.Fragment>
+          ))}
+        </a>
+      );
     case "heading-two":
       return (
         <h2 key={index} className="text-3xl font-medium mt-12 mb-4">

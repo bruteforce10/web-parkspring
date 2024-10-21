@@ -37,9 +37,9 @@ const Navbar = () => {
           </Link>
           <div className="hidden lg:block">
             <ul className="menu gap-10 menu-horizontal">
-              <StyleList herf="#about" text="About" />
-              <StyleList herf="#type" text="Type" />
-              <StyleList herf="#facilities" text="Facilities" />
+              <StyleList herf="/#type" text="Type" />
+              <StyleList herf="/#facilities" text="Facilities" />
+              <StyleList herf="/berita-media" text="Berita" />
             </ul>
           </div>
         </div>
@@ -84,19 +84,22 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content -left-[90px] mt-3 z-[1] p-2 shadow bg-base-100 rounded-box"
             >
               <li>
-                <a href="#about">About</a>
+                <a href="/#about">About</a>
               </li>
               <li>
-                <a href="#type">Type</a>
+                <a href="/#type">Type</a>
               </li>
               <li>
-                <a href="#facilities">Facilities</a>
+                <a href="/#facilities">Facilities</a>
               </li>
               <li>
-                <a href="#vr">Virtual Tour</a>
+                <a href="/#vr">Virtual Tour</a>
               </li>
               <li>
-                <a href="#location">Location</a>
+                <a href="/#location">Location</a>
+              </li>
+              <li>
+                <a href="/#berita-media">Berita Media</a>
               </li>
             </ul>
           </div>

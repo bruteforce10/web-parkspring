@@ -74,16 +74,18 @@ export default async function pageBerita({ params }) {
             <Hastag data={articel?.hastag} />
             <SocialMedia />
           </div>
-          <div className="mt-8 space-y-2">
-            <h4 className="text-xl font-medium">Referensi</h4>
-            <a
-              href="#"
-              target="_blank"
-              className="underline underline-offset-2 block text-secondary"
-            >
-              {articel?.reference}
-            </a>
-          </div>
+          {articel?.reference && (
+            <div className="mt-8 space-y-2">
+              <h4 className="text-xl font-medium">Referensi</h4>
+              <a
+                href="#"
+                target="_blank"
+                className="underline underline-offset-2 block text-secondary"
+              >
+                {articel?.reference}
+              </a>
+            </div>
+          )}
         </div>
         <SideSection />
       </section>
