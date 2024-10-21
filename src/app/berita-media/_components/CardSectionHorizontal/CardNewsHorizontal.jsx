@@ -31,7 +31,7 @@ const CardNewsHorizontal = ({
           })}
           <p className="text-black/70">{dateFormat(createdAt)}</p>
         </div>
-        <Link href={"/"} className="block hover:opacity-75">
+        <Link href={`/berita-media/${slug}`} className="block hover:opacity-75">
           <h2 className="font-semibold text-2xl ">{title}</h2>
         </Link>
         <p className="leading-relaxed line-clamp-2 lg:line-clamp-3">
