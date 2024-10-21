@@ -17,6 +17,21 @@ export const getContentFragment = (index, text, obj, type) => {
       modifiedText = <u key={index}>{text}</u>;
     }
 
+    if (obj.type === "link") {
+      modifiedText = (
+        <a
+          key={index}
+          href={obj.href}
+          className="text-secondary cursor-pointer hover:underline"
+          target="_blank"
+        >
+          {obj?.children?.map((item, i) => (
+            <React.Fragment key={i}>{item?.text}</React.Fragment>
+          ))}
+        </a>
+      );
+    }
+
     if (obj.code) {
       modifiedText = (
         <code
@@ -44,19 +59,6 @@ export const getContentFragment = (index, text, obj, type) => {
             <React.Fragment key={i}>{item}</React.Fragment>
           ))}
         </h3>
-      );
-    case "link":
-      return (
-        <a
-          key={index}
-          href={obj.url}
-          target="_blank"
-          className="text-secondary hover:underline cursor-pointer"
-        >
-          {modifiedText.map((item, i) => (
-            <React.Fragment key={i}>{item}</React.Fragment>
-          ))}
-        </a>
       );
     case "heading-two":
       return (

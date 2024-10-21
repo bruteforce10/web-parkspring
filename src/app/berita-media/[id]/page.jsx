@@ -12,6 +12,7 @@ const getData = async (params) => {
     `https://parkspring.vercel.app/api/news/${params.id}`,
     {
       cache: "no-store",
+      next: { revalidate: 0 },
     }
   );
   if (!res.ok) {
@@ -64,9 +65,9 @@ export default async function pageBerita({ params }) {
 
           <article>
             {articel?.description?.raw?.children.map((typeObj, index) => {
-              const children = typeObj?.children.map((item, itemindex) =>
-                getContentFragment(itemindex, item.text, item)
-              );
+              const children = typeObj?.children.map((item, itemindex) => {
+                return getContentFragment(itemindex, item.text, item);
+              });
               return getContentFragment(index, children, typeObj, typeObj.type);
             })}
           </article>
