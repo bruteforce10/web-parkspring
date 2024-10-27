@@ -12,7 +12,7 @@ const getData = async (params) => {
     `https://parkspring.vercel.app/api/news/${params.id}`,
     {
       cache: "no-store",
-      next: { revalidate: 0 },
+      next: { revalidate: 0, revalidatePath: "/berita-media" },
     }
   );
   if (!res.ok) {
