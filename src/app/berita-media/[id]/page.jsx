@@ -6,19 +6,21 @@ import SideSection from "./_components/SideSection";
 import dateFormat from "@/app/utils/dateFormat";
 import BreadCrumpSearch from "../_components/BreadCrumpSearch";
 import { getContentFragment } from "@/app/utils/contentFragment";
+import { revalidatePath } from "next/cache";
 
 const getData = async (params) => {
+  revalidatePath(`/berita-media/${params.id}`);
   const res = await fetch(
     `https://parkspring.vercel.app/api/news/${params.id}`,
     {
-      cache: "no-store",
-      next: { revalidate: 0, revalidatePath: "/berita-media" },
+      cache: "force-cache",
     }
   );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
   const data = await res.json();
+  revalidatePath("/berita-media");
   return data;
 };
 
@@ -37,8 +39,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 }
 
 export default async function pageBerita({ params }) {
-  const response = await getData(params);
-  const { data } = response;
+  const { data } = await getData(params);
   const { articel } = data;
 
   return (
