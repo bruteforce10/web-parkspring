@@ -9,9 +9,12 @@ import { getContentFragment } from "@/app/utils/contentFragment";
 import { revalidatePath } from "next/cache";
 
 const getData = async (params) => {
-  const res = await fetch(`http://localhost:3000/api/news/${params.id}`, {
-    cache: "force-cache",
-  });
+  const res = await fetch(
+    `https://parkspring.vercel.app/api/news/${params.id}`,
+    {
+      cache: "force-cache",
+    }
+  );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
