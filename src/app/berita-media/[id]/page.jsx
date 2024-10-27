@@ -9,24 +9,19 @@ import { getContentFragment } from "@/app/utils/contentFragment";
 import { revalidatePath } from "next/cache";
 
 const getData = async (params) => {
-  revalidatePath(`/berita-media/${params.id}`);
-  const res = await fetch(
-    `https://parkspring.vercel.app/api/news/${params.id}`,
-    {
-      cache: "force-cache",
-    }
-  );
+  const res = await fetch(`http://localhost:3000/api/news/${params.id}`, {
+    cache: "force-cache",
+  });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
   const data = await res.json();
-  revalidatePath("/berita-media");
+  revalidatePath(`/berita-media/${params.id}`);
   return data;
 };
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const response = await getData(params);
-  const { data } = response;
+  const { data } = await getData(params);
   const { articel } = data;
 
   return {
