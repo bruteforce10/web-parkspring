@@ -69,6 +69,11 @@ const PageBeritaSection = ({ params }) => {
             <h1 className="font-semibold leading-relaxed text-3xl">
               {article?.title}
             </h1>
+            <div className="flex justify-center">
+              <h5>Intan Dwiyanti</h5>
+              <span className="mx-2">|</span>
+              <span className="text-secondary">Content Writter</span>
+            </div>
           </div>
 
           <Image
