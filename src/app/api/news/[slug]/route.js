@@ -1,6 +1,6 @@
 import request, { gql } from "graphql-request";
 export async function GET(req, { params }) {
-  const slug = params.slug;
+  const slug = await params.slug;
   const query =
     gql`
     query MyQuery {

@@ -1,59 +1,49 @@
-"use client";
+"use server";
+import React from "react";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import SideSection from "./_components/SideSection";
-import BreadCrumpSearch from "../_components/BreadCrumpSearch";
-import dateFormatNew from "@/app/utils/dateFormatNew";
-import { getContentFragment } from "@/app/utils/contentFragment";
-import Hastag from "./_components/Hastag";
 import SocialMedia from "./_components/SocialMedia";
+import Hastag from "./_components/Hastag";
+import SideSection from "./_components/SideSection";
+import dateFormat from "@/app/utils/dateFormat";
+import BreadCrumpSearch from "../_components/BreadCrumpSearch";
+import { getContentFragment } from "@/app/utils/contentFragment";
+import { revalidatePath } from "next/cache";
+import next from "next";
 
-const PageBeritaSection = ({ params }) => {
-  const [article, setArticle] = useState(null);
-
-  const fetchNews = async (slug) => {
-    try {
-      const res = await fetch(
-        `https://www.parkspring.co.id/api/news/${slug.id}`,
-        {
-          cache: "force-cache",
-        }
-      );
-
-      if (!res.ok) {
-        throw new Error("Failed to fetch data");
-      }
-
-      const data = await res.json();
-      setArticle(data?.data?.articel);
-    } catch (error) {
-      console.error("Error fetching data:", error);
+const getData = async (params) => {
+  const res = await fetch(
+    `https://www.parkspring.co.id/api/news/${params.id}`,
+    {
+      cache: "no-store",
+      next: {
+        revalidate: 10,
+      },
     }
-  };
-
-  useEffect(() => {
-    fetchNews(params);
-  }, []);
-
-  if (!article) {
-    return (
-      <main className=" max-sm:mt-14 sm:mt-20 max-sm:mb-24">
-        <div className="sm:mb-12 mb-8">
-          <BreadCrumpSearch />
-        </div>
-        <section className="flex md:flex-row flex-col gap-12 sm:px-8 px-4 max-w-[1250px] mx-auto container">
-          <div className="w-full">
-            <div className="text-center space-y-2">
-              <p className="text-black/70 ">Loading...</p>
-              <h1 className="font-semibold leading-relaxed text-3xl">
-                Loading...
-              </h1>
-            </div>
-          </div>
-        </section>
-      </main>
-    );
+  );
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
   }
+  const data = await res.json();
+  revalidatePath(`/berita-media/${params.id}`);
+  return data;
+};
+
+export async function generateMetadata({ params, searchParams }, parent) {
+  const { data } = await getData(params);
+  const { articel } = data;
+
+  return {
+    title: articel?.metaTitle,
+    description: articel?.metaDescription,
+    openGraph: {
+      images: articel?.cover?.url,
+    },
+  };
+}
+
+export default async function pageBerita({ params }) {
+  const { data } = await getData(params);
+  const { articel } = data;
 
   return (
     <main className=" max-sm:mt-14 sm:mt-20 max-sm:mb-24">
@@ -63,29 +53,22 @@ const PageBeritaSection = ({ params }) => {
       <section className="flex md:flex-row flex-col gap-12 sm:px-8 px-4 max-w-[1250px] mx-auto container">
         <div className="w-full">
           <div className="text-center space-y-2">
-            <p className="text-black/70 ">
-              {dateFormatNew(article?.createdAt)}
-            </p>
+            <p className="text-black/70 ">{dateFormat(articel?.createdAt)}</p>
             <h1 className="font-semibold leading-relaxed text-3xl">
-              {article?.title}
+              {articel?.title}
             </h1>
-            <div className="flex justify-center">
-              <h5>Intan Dwiyanti</h5>
-              <span className="mx-2">|</span>
-              <span className="text-secondary">Content Writter</span>
-            </div>
           </div>
 
           <Image
-            src={article?.cover?.url}
-            alt={article?.fileName}
+            src={articel?.cover?.url}
+            alt={articel?.fileName}
             className="rounded-xl w-full my-7 object-center object-cover"
             width={800}
             height={800}
           />
 
           <article>
-            {article?.description?.raw?.children.map((typeObj, index) => {
+            {articel?.description?.raw?.children.map((typeObj, index) => {
               const children = typeObj?.children.map((item, itemindex) => {
                 return getContentFragment(itemindex, item.text, item);
               });
@@ -93,10 +76,10 @@ const PageBeritaSection = ({ params }) => {
             })}
           </article>
           <div className=" mt-16 max-sm:mt-8 max-sm:space-y-4 space-y-2">
-            <Hastag data={article?.hastag} />
+            <Hastag data={articel?.hastag} />
             <SocialMedia />
           </div>
-          {article?.reference && (
+          {articel?.reference && (
             <div className="mt-8 space-y-2">
               <h4 className="text-xl font-medium">Referensi</h4>
               <a
@@ -104,7 +87,7 @@ const PageBeritaSection = ({ params }) => {
                 target="_blank"
                 className="underline underline-offset-2 block text-secondary"
               >
-                {article?.reference}
+                {articel?.reference}
               </a>
             </div>
           )}
@@ -113,6 +96,4 @@ const PageBeritaSection = ({ params }) => {
       </section>
     </main>
   );
-};
-
-export default PageBeritaSection;
+}
