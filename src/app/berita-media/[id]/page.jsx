@@ -4,14 +4,20 @@ import React, { useEffect, useState } from "react";
 import SideSection from "./_components/SideSection";
 import BreadCrumpSearch from "../_components/BreadCrumpSearch";
 import dateFormatNew from "@/app/utils/dateFormatNew";
+import { getContentFragment } from "@/app/utils/contentFragment";
+import Hastag from "./_components/Hastag";
+import SocialMedia from "./_components/SocialMedia";
 
 const PageBeritaSection = ({ params }) => {
-  const [article, setArticle] = useState({});
+  const [article, setArticle] = useState(null);
 
   const fetchNews = async (slug) => {
     try {
       const res = await fetch(
-        `https://www.parkspring.co.id/api/news/${slug.id}`
+        `https://www.parkspring.co.id/api/news/${slug.id}`,
+        {
+          cache: "force-cache",
+        }
       );
 
       if (!res.ok) {
@@ -19,7 +25,7 @@ const PageBeritaSection = ({ params }) => {
       }
 
       const data = await res.json();
-      setArticle(data.data.articel);
+      setArticle(data?.data?.articel);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -28,6 +34,26 @@ const PageBeritaSection = ({ params }) => {
   useEffect(() => {
     fetchNews(params);
   }, []);
+
+  if (!article) {
+    return (
+      <main className=" max-sm:mt-14 sm:mt-20 max-sm:mb-24">
+        <div className="sm:mb-12 mb-8">
+          <BreadCrumpSearch />
+        </div>
+        <section className="flex md:flex-row flex-col gap-12 sm:px-8 px-4 max-w-[1250px] mx-auto container">
+          <div className="w-full">
+            <div className="text-center space-y-2">
+              <p className="text-black/70 ">Loading...</p>
+              <h1 className="font-semibold leading-relaxed text-3xl">
+                Loading...
+              </h1>
+            </div>
+          </div>
+        </section>
+      </main>
+    );
+  }
 
   return (
     <main className=" max-sm:mt-14 sm:mt-20 max-sm:mb-24">
@@ -52,6 +78,31 @@ const PageBeritaSection = ({ params }) => {
             width={800}
             height={800}
           />
+
+          <article>
+            {article?.description?.raw?.children.map((typeObj, index) => {
+              const children = typeObj?.children.map((item, itemindex) => {
+                return getContentFragment(itemindex, item.text, item);
+              });
+              return getContentFragment(index, children, typeObj, typeObj.type);
+            })}
+          </article>
+          <div className=" mt-16 max-sm:mt-8 max-sm:space-y-4 space-y-2">
+            <Hastag data={article?.hastag} />
+            <SocialMedia />
+          </div>
+          {article?.reference && (
+            <div className="mt-8 space-y-2">
+              <h4 className="text-xl font-medium">Referensi</h4>
+              <a
+                href="#"
+                target="_blank"
+                className="underline underline-offset-2 block text-secondary"
+              >
+                {article?.reference}
+              </a>
+            </div>
+          )}
         </div>
         <SideSection />
       </section>
