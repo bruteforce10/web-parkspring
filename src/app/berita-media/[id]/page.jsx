@@ -7,21 +7,16 @@ import dateFormatNew from "@/app/utils/dateFormatNew";
 import { getContentFragment } from "@/app/utils/contentFragment";
 import Hastag from "./_components/Hastag";
 import SocialMedia from "./_components/SocialMedia";
-import useSWR from "swr";
-
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+import { getOne } from "@/app/utils/getAll";
 
 const PageBeritaSection = ({ params }) => {
-  const { data, error, isLoading, mutate } = useSWR(
-    `/api/news/${params.id}`,
-    fetcher
-  );
+  const [article, setArticle] = useState(null);
 
   useEffect(() => {
-    mutate();
+    getOne(params?.id).then((data) => {
+      setArticle(data?.articel);
+    });
   }, []);
-
-  // const [article, setArticle] = useState(null);
 
   // const fetchNews = async (slug) => {
   //   try {
@@ -44,30 +39,29 @@ const PageBeritaSection = ({ params }) => {
   //   fetchNews(params);
   // }, []);
 
-  // if (!article) {
-  //   return (
-  //     <main className=" max-sm:mt-14 sm:mt-20 max-sm:mb-24">
-  //       <div className="sm:mb-12 mb-8">
-  //         <BreadCrumpSearch />
-  //       </div>
-  //       <section className="flex md:flex-row flex-col gap-12 sm:px-8 px-4 max-w-[1250px] mx-auto container">
-  //         <div className="w-full">
-  //           <div className="text-center space-y-2">
-  //             <p className="text-black/70 ">Loading...</p>
-  //             <h1 className="font-semibold leading-relaxed text-3xl">
-  //               Loading...
-  //             </h1>
-  //           </div>
-  //         </div>
-  //       </section>
-  //     </main>
-  //   );
-  // }
+  if (!article) {
+    return (
+      <main className=" max-sm:mt-14 sm:mt-20 max-sm:mb-24">
+        <div className="sm:mb-12 mb-8">
+          <BreadCrumpSearch />
+        </div>
+        <section className="flex md:flex-row flex-col gap-12 sm:px-8 px-4 max-w-[1250px] mx-auto container">
+          <div className="w-full">
+            <div className="text-center space-y-2">
+              <p className="text-black/70 ">Loading...</p>
+              <h1 className="font-semibold leading-relaxed text-3xl">
+                Loading...
+              </h1>
+            </div>
+          </div>
+        </section>
+      </main>
+    );
+  }
 
   return (
     <main className=" max-sm:mt-14 sm:mt-20 max-sm:mb-24">
-      <p>{data?.data?.articel?.title}</p>
-      {/* <div className="sm:mb-12 mb-8">
+      <div className="sm:mb-12 mb-8">
         <BreadCrumpSearch />
       </div>
       <section className="flex md:flex-row flex-col gap-12 sm:px-8 px-4 max-w-[1250px] mx-auto container">
@@ -120,7 +114,7 @@ const PageBeritaSection = ({ params }) => {
           )}
         </div>
         <SideSection />
-      </section> */}
+      </section>
     </main>
   );
 };

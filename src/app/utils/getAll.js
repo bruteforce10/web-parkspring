@@ -53,3 +53,36 @@ export const getAll = async (orderBy, category) => {
   );
   return result;
 };
+
+export const getOne = async (slug) => {
+  const query =
+    gql`
+    query MyQuery {
+      articel(where: { slug: "` +
+    slug +
+    `" }) {
+        category
+        createdAt
+        hastag
+        id
+        metaDescription
+        metaTitle
+        title
+        description {
+          raw
+        }
+          cover {
+      url
+      fileName
+    }
+        reference
+      }
+    }
+  `;
+
+  const result = await request(
+    "https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clwr3x7dr00qq07wechiddjy2/master",
+    query
+  );
+  return result;
+};
