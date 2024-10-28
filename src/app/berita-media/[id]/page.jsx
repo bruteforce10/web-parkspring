@@ -1,41 +1,33 @@
-import React from "react";
+"use client";
 import Image from "next/image";
-import SocialMedia from "./_components/SocialMedia";
-import Hastag from "./_components/Hastag";
+import React, { useEffect, useState } from "react";
 import SideSection from "./_components/SideSection";
-import dateFormat from "@/app/utils/dateFormat";
 import BreadCrumpSearch from "../_components/BreadCrumpSearch";
-import { getContentFragment } from "@/app/utils/contentFragment";
-import { revalidatePath } from "next/cache";
+import dateFormatNew from "@/app/utils/dateFormatNew";
 
-const getData = async (params) => {
-  const res = await fetch(`http://localhost:3000/api/news/${params.id}`, {
-    cache: "no-store",
-  });
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-  const data = await res.json();
-  revalidatePath(`/berita-media/${params.id}`);
-  return data;
-};
+const PageBeritaSection = ({ params }) => {
+  const [article, setArticle] = useState({});
 
-export async function generateMetadata({ params, searchParams }, parent) {
-  const { data } = await getData(params);
-  const { articel } = data;
+  const fetchNews = async (slug) => {
+    try {
+      const res = await fetch(
+        `https://parkspring.vercel.app/api/news/${slug.id}`
+      );
 
-  return {
-    title: articel?.metaTitle,
-    description: articel?.metaDescription,
-    openGraph: {
-      images: articel?.cover?.url,
-    },
+      if (!res.ok) {
+        throw new Error("Failed to fetch data");
+      }
+
+      const data = await res.json();
+      setArticle(data.data.articel);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
-}
 
-export default async function pageBerita({ params }) {
-  const { data } = await getData(params);
-  const { articel } = data;
+  useEffect(() => {
+    fetchNews(params);
+  }, []);
 
   return (
     <main className=" max-sm:mt-14 sm:mt-20 max-sm:mb-24">
@@ -45,47 +37,26 @@ export default async function pageBerita({ params }) {
       <section className="flex md:flex-row flex-col gap-12 sm:px-8 px-4 max-w-[1250px] mx-auto container">
         <div className="w-full">
           <div className="text-center space-y-2">
-            <p className="text-black/70 ">{dateFormat(articel?.createdAt)}</p>
+            <p className="text-black/70 ">
+              {dateFormatNew(article?.createdAt)}
+            </p>
             <h1 className="font-semibold leading-relaxed text-3xl">
-              {articel?.title}
+              {article?.title}
             </h1>
           </div>
 
           <Image
-            src={articel?.cover?.url}
-            alt={articel?.fileName}
+            src={article?.cover?.url}
+            alt={article?.fileName}
             className="rounded-xl w-full my-7 object-center object-cover"
             width={800}
             height={800}
           />
-
-          <article>
-            {articel?.description?.raw?.children.map((typeObj, index) => {
-              const children = typeObj?.children.map((item, itemindex) => {
-                return getContentFragment(itemindex, item.text, item);
-              });
-              return getContentFragment(index, children, typeObj, typeObj.type);
-            })}
-          </article>
-          <div className=" mt-16 max-sm:mt-8 max-sm:space-y-4 space-y-2">
-            <Hastag data={articel?.hastag} />
-            <SocialMedia />
-          </div>
-          {articel?.reference && (
-            <div className="mt-8 space-y-2">
-              <h4 className="text-xl font-medium">Referensi</h4>
-              <a
-                href="#"
-                target="_blank"
-                className="underline underline-offset-2 block text-secondary"
-              >
-                {articel?.reference}
-              </a>
-            </div>
-          )}
         </div>
         <SideSection />
       </section>
     </main>
   );
-}
+};
+
+export default PageBeritaSection;
