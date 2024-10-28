@@ -11,7 +11,7 @@ const PageBeritaSection = ({ params }) => {
   const fetchNews = async (slug) => {
     try {
       const res = await fetch(
-        `https://parkspring.vercel.app/api/news/${slug.id}`
+        `https://www.parkspring.co.id/api/news/${slug.id}`
       );
 
       if (!res.ok) {
