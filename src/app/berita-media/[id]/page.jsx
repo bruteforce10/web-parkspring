@@ -1,4 +1,3 @@
-"use server";
 import React from "react";
 import Image from "next/image";
 import SocialMedia from "./_components/SocialMedia";
@@ -7,14 +6,14 @@ import SideSection from "./_components/SideSection";
 import dateFormat from "@/app/utils/dateFormat";
 import BreadCrumpSearch from "../_components/BreadCrumpSearch";
 import { getContentFragment } from "@/app/utils/contentFragment";
-import { revalidatePath } from "next/cache";
-import next from "next";
+
+export const revalidate = 0;
 
 const getData = async (params) => {
   const res = await fetch(
-    `https://www.parkspring.co.id/api/news/${params.id}`,
+    `https://parkspring.vercel.app/api/news/${params.id}`,
     {
-      cache: "no-store",
+      cache: "no-cache",
       next: {
         revalidate: 10,
       },
@@ -24,7 +23,6 @@ const getData = async (params) => {
     throw new Error("Failed to fetch data");
   }
   const data = await res.json();
-  revalidatePath(`/berita-media/${params.id}`);
   return data;
 };
 
