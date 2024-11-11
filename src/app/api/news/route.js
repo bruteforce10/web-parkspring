@@ -1,7 +1,7 @@
 import request, { gql } from "graphql-request";
 
 export async function POST(req) {
-  const { first = 3, skip = 0, orderBy } = await req.json();
+  const { first = 6, skip = 0, orderBy } = await req.json();
 
   const query = gql`
     query MyQuery {
@@ -33,7 +33,7 @@ export async function POST(req) {
 
 export async function GET(req) {
   const searchParams = req.nextUrl.searchParams;
-  const first = searchParams.get("first") || 3;
+  const first = searchParams.get("first") || 6;
   const skip = searchParams.get("skip") || 0;
   const orderBy = searchParams.get("orderBy") || "createdAt_ASC";
   const category = searchParams.get("category") || null;
@@ -42,7 +42,7 @@ export async function GET(req) {
   if (category) {
     query = gql`
       query MyQuery {
-        articels(first: ${first}, skip: ${skip},where: { category:${category} }) {
+        articels(where: { category:${category} }) {
           metaDescription
           title
           category
@@ -63,7 +63,7 @@ export async function GET(req) {
   } else {
     query = gql`
       query MyQuery {
-        articels(first: ${first}, skip: ${skip},orderBy: ${orderBy}) {
+        articels(orderBy: ${orderBy}) {
           metaDescription
           title
           category
