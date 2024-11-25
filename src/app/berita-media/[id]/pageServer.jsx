@@ -6,20 +6,21 @@ import SideSection from "./_components/SideSection";
 import dateFormat from "@/app/utils/dateFormat";
 import BreadCrumpSearch from "../_components/BreadCrumpSearch";
 import { getContentFragment } from "@/app/utils/contentFragment";
-import { revalidatePath } from "next/cache";
 
 const getData = async (params) => {
   const res = await fetch(
     `https://parkspring.vercel.app/api/news/${params.id}`,
     {
-      cache: "force-cache",
+      cache: "no-cache",
+      next: {
+        revalidate: 10,
+      },
     }
   );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
   const data = await res.json();
-  revalidatePath(`/berita-media/${params.id}`);
   return data;
 };
 

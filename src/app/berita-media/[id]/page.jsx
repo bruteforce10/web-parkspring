@@ -7,33 +7,37 @@ import dateFormatNew from "@/app/utils/dateFormatNew";
 import { getContentFragment } from "@/app/utils/contentFragment";
 import Hastag from "./_components/Hastag";
 import SocialMedia from "./_components/SocialMedia";
+import { getOne } from "@/app/utils/getAll";
 
 const PageBeritaSection = ({ params }) => {
   const [article, setArticle] = useState(null);
 
-  const fetchNews = async (slug) => {
-    try {
-      const res = await fetch(
-        `https://www.parkspring.co.id/api/news/${slug.id}`,
-        {
-          cache: "force-cache",
-        }
-      );
-
-      if (!res.ok) {
-        throw new Error("Failed to fetch data");
-      }
-
-      const data = await res.json();
-      setArticle(data?.data?.articel);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
   useEffect(() => {
-    fetchNews(params);
+    getOne(params?.id).then((data) => {
+      setArticle(data?.articel);
+    });
   }, []);
+
+  // const fetchNews = async (slug) => {
+  //   try {
+  //     const res = await fetch(`http://localhost:3000/api/news/${slug.id}`, {
+  //       cache: "no-store",
+  //     });
+
+  //     if (!res.ok) {
+  //       throw new Error("Failed to fetch data");
+  //     }
+
+  //     const data = await res.json();
+  //     setArticle(data?.data?.articel);
+  //   } catch (error) {
+  //     console.error("Error fetching data:", error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   fetchNews(params);
+  // }, []);
 
   if (!article) {
     return (
