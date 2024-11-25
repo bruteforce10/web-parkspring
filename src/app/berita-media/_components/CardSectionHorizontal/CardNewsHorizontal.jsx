@@ -14,8 +14,8 @@ const CardNewsHorizontal = ({
   return (
     <div className="flex gap-8 md:h-[200px] max-md:flex-col items-center ">
       <Image
-        src={cover.url}
-        alt={cover.fileName}
+        src={cover?.url}
+        alt={cover?.fileName}
         className="rounded-xl w-full md:max-w-[300px] h-[200px] object-center object-cover"
         width={800}
         height={800}

@@ -22,6 +22,7 @@ const SelectArchives = () => {
       <select
         className="select select-ghost w-[110px] text-lg"
         onChange={handleSelectChange}
+        value={searchParams.get("orderBy") || "createdAt_ASC"}
       >
         <option disabled selected>
           Filter

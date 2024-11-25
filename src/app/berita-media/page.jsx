@@ -31,6 +31,8 @@ export default async function pageMedia({ searchParams }) {
   const { orderBy, category, first, skip } = searchParams;
   const { data } = await getData(orderBy, category, first, skip);
 
+  console.log(data);
+
   return (
     <main className="mt-8">
       <BreadCrumpSearch />
