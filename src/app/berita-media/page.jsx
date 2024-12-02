@@ -19,6 +19,7 @@ const getData = async (
       cache: "force-cache",
     }
   );
+
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -30,8 +31,6 @@ const getData = async (
 export default async function pageMedia({ searchParams }) {
   const { orderBy, category, first, skip } = searchParams;
   const { data } = await getData(orderBy, category, first, skip);
-
-  console.log(data);
 
   return (
     <main className="mt-8">

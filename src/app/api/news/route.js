@@ -42,7 +42,7 @@ export async function GET(req) {
   if (category) {
     query = gql`
       query MyQuery {
-        articels(where: { category:${category} }) {
+        articels(where: { category:${category}}, orderBy: ${orderBy}, first: ${first}, skip: ${skip}) {
           metaDescription
           title
           category
@@ -63,7 +63,7 @@ export async function GET(req) {
   } else {
     query = gql`
       query MyQuery {
-        articels(orderBy: ${orderBy}) {
+        articels(orderBy: ${orderBy}, first: ${first}, skip: ${skip}) {
           metaDescription
           title
           category

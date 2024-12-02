@@ -6,7 +6,7 @@ export const getAll = async (orderBy, category) => {
   if (category) {
     query = gql`
     query MyQuery {
-      articels(orderBy: ${orderBy},where: { category:${category} }) {
+      articels(orderBy: ${orderBy},where: { category:${category} }, first: 1000) {
         metaDescription
         title
         category
@@ -27,7 +27,7 @@ export const getAll = async (orderBy, category) => {
   } else {
     query = gql`
     query MyQuery {
-      articels(orderBy: ${orderBy}) {
+      articels(orderBy: ${orderBy}, first: 1000) {
         metaDescription
         title
         category

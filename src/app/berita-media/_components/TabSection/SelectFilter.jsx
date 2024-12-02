@@ -22,13 +22,13 @@ const SelectArchives = () => {
       <select
         className="select select-ghost w-[110px] text-lg"
         onChange={handleSelectChange}
-        value={searchParams.get("orderBy") || "createdAt_ASC"}
+        value={searchParams.get("orderBy") || "createdAt_DESC"}
       >
         <option disabled selected>
           Filter
         </option>
-        <option value="createdAt_ASC">Terbaru</option>
-        <option value="createdAt_DESC">Lawas</option>
+        <option value="createdAt_DESC">Terbaru</option>
+        <option value="createdAt_ASC">Lawas</option>
       </select>
     </a>
   );

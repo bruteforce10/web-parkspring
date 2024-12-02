@@ -37,7 +37,7 @@ const Navbar = () => {
           </Link>
           <div className="hidden lg:block">
             <ul className="menu gap-10 menu-horizontal">
-              <StyleList herf="/#type" text="Type" />
+              <StyleList herf="/type" text="Type" />
               <StyleList herf="/#facilities" text="Facilities" />
               <StyleList herf="/berita-media" text="Berita" />
             </ul>
@@ -87,7 +87,7 @@ const Navbar = () => {
                 <a href="/#about">About</a>
               </li>
               <li>
-                <a href="/#type">Type</a>
+                <a href="/type">Type</a>
               </li>
               <li>
                 <a href="/#facilities">Facilities</a>
