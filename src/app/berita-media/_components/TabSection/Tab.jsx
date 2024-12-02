@@ -12,6 +12,7 @@ const Tab = () => {
   React.useEffect(() => {
     const currentParams = new URLSearchParams(searchParams);
     currentParams.delete("category");
+    currentParams.delete("skip");
     const newUrl = currentParams.toString()
       ? `/berita-media?${currentParams.toString()}`
       : "/berita-media";
@@ -28,8 +29,10 @@ const Tab = () => {
 
       if (name === "All") {
         currentParams.delete("category");
+        currentParams.delete("skip");
       } else {
         currentParams.set("category", name);
+        currentParams.delete("skip");
       }
 
       const newUrl = currentParams.toString()
