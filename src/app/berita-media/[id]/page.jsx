@@ -74,9 +74,9 @@ const PageBeritaSection = ({ params }) => {
               {article?.title}
             </h1>
             <div className="flex justify-center">
-              <h5>Intan Dwiyanti</h5>
+              <h5>Meita Ayu</h5>
               <span className="mx-2">|</span>
-              <span className="text-secondary">Content Writter</span>
+              <span className="text-secondary">Marcomm Specialist</span>
             </div>
           </div>
 
