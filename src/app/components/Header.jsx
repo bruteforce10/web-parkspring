@@ -21,7 +21,7 @@ const Header = () => {
         <div className="flex max-lg:gap-12 max-lg:flex-col max-lg:justify-center max-lg:items-center items-start">
           <div className="flex flex-col gap-6">
             <h3 className="xl:text-3xl lg:text-xl md:text-xl text-white py-2 bg-gradient-to-r from-primary to-[#5f813b] rounded-xl inline-block w-fit px-6 max-lg:mx-auto">
-              Berkonsep Japanese Tropical
+              Japanese Tropical Home
             </h3>
             <h1 className=" text-white lg:text-6xl max-lg:text-center text-5xl md:text-6xl  xl:text-7xl font-semibold md:leading-tight text-shadow-lg ">
               Hunian Modern Mengutamakan Keseimbangan Hidup
