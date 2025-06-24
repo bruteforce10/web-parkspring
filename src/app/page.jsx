@@ -11,6 +11,7 @@ import LocationMap from "./components/LocationMap";
 import TextDirect from "./components/TextDirect";
 import TypeSection from "./components/TypeSection";
 import NewsLetterSection from "./components/NewsLetterSection";
+import CallToAction from "./components/CallToAction";
 
 async function getData() {
   const res = await fetch("https://parkspring.vercel.app/api/data-web", {
@@ -43,6 +44,9 @@ export default async function Home() {
       <NewsLetterSection />
       <LocationMap />
       <Footer />
+      <div className="fixed bottom-0 z-[99] w-full">
+        <CallToAction />
+      </div>
     </main>
   );
 }
