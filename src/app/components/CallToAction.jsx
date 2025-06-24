@@ -15,6 +15,7 @@ const CallToAction = () => {
             `https://api.whatsapp.com/send?phone=%2062${noWhatsapp}&text=Hai,%20saya%20dapat%20info%20dari%20website%20PARKSPRING%20Gading`
           )
         }
+        id="cta-button-floating"
         className="bg-[#289b52]  p-3 rounded-full w-fit max-sm:mr-10 mr-16 mb-12 max-sm:mb-10 ml-auto relative cursor-pointer"
       >
         <div className=" bg-red-700 animate-bounce text-center mx-auto absolute rounded-full h-5 w-5 top-0 -left-1">

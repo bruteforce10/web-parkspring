@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar";
 import { ContextProvider } from "./utils/stateContext";
 import CallToAction from "./components/CallToAction";
 import { Analytics } from "@vercel/analytics/react";
+import GoogleTagManagerScript from "@/lib/Head";
+import GoogleTagManagerNoScript from "@/lib/Body";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -25,6 +27,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <Analytics />
+      <GoogleTagManagerScript />
+      <GoogleTagManagerNoScript />
       <ContextProvider>
         <body className={outfit.className}>
           <div className=" top-0 z-[99] sticky">
