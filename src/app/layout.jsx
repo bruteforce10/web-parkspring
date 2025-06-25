@@ -37,6 +37,22 @@ export default function RootLayout({ children }) {
             })(window,document,'script','dataLayer','${GTM_ID}');
           `}
         </Script>
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17252857015"
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17252857015');
+            `,
+          }}
+        />
       </head>
       <Analytics />
       <ContextProvider>
