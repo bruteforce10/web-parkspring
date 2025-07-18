@@ -11,7 +11,7 @@ const ButtonHook = ({ children, className }) => {
     <button
       id="button-call"
       onClick={() =>
-        window.open(
+        gtag_report_conversion(
           `https://api.whatsapp.com/send?phone=%2062${noWhatsapp}&text=Hai,%20saya%20dapat%20info%20dari%20website%20PARKSPRING%20Gading`
         )
       }

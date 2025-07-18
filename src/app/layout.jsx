@@ -53,6 +53,22 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
+        <Script id="gtag-conversion" strategy="afterInteractive">
+          {`
+          function gtag_report_conversion(url) {
+            var callback = function () {
+              if (typeof url !== 'undefined') {
+                window.location = url;
+              }
+            };
+            gtag('event', 'conversion', {
+              send_to: 'AW-17252857015/rfneCIqwm-IaELfp5qJA',
+              event_callback: callback
+            });
+            return false;
+          }
+      `}
+        </Script>
       </head>
       <Analytics />
       <ContextProvider>
