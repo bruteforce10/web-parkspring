@@ -50,7 +50,7 @@ const Header = () => {
           </div>
           <div className="flex flex-col items-center justify-center gap-6">
             <Image
-              src="/price-label.webp"
+              src="https://res.cloudinary.com/ddaoyv9wh/image/upload/v1765440209/price-label_u3535t.webp"
               alt="Parkspring Gading Logo"
               width={800}
               height={800}
