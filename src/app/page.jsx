@@ -14,7 +14,7 @@ import NewsLetterSection from "./components/NewsLetterSection";
 import CallToAction from "./components/CallToAction";
 
 async function getData() {
-  const res = await fetch("https://parkspring.vercel.app/api/data-web", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/data-web`, {
     cache: "no-store",
   });
 
