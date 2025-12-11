@@ -55,6 +55,8 @@ const Header = () => {
               width={800}
               height={800}
               className="sm:max-w-[500px] max-w-[350px] h-auto object-contain"
+              priority
+              quality={50}
             />
             <div className="inline-flex sm:hidden items-center justify-center px-6 py-4 border-[#e2c60f] border-2 bg-gradient-to-r from-[#5f823a] to-[#688b41] rounded-xl">
               <p className="text-transparent  bg-clip-text bg-gradient-to-r from-secondary to-[#e2c60f] font-bold text-4xl">
