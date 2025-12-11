@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import React from "react";
 import StyleList from "./ui/style-list";
 import { LuInstagram } from "react-icons/lu";
@@ -26,13 +25,10 @@ const Navbar = () => {
       <div className="navbar px-8 max-w-[1250px] mx-auto">
         <div className="navbar-start">
           <Link href="/">
-            <Image
+            <img
               src="/logo-parkspring.svg"
               alt="logo-parkspring"
               className="w-[60%] md:hidden block object-contain z-50"
-              width={50}
-              height={50}
-              quality={50}
             />
           </Link>
           <div className="hidden lg:block">
@@ -46,13 +42,10 @@ const Navbar = () => {
         <div className="navbar-center">
           <motion.div animate={{ scale: isScrolled ? 0.75 : 1 }}>
             <Link href="/">
-              <Image
+              <img
                 src="/logo-parkspring.svg"
                 alt="logo-parkspring"
                 className="w-[95%] md:block hidden object-contain z-50"
-                width={50}
-                height={50}
-                quality={50}
               />
             </Link>
           </motion.div>

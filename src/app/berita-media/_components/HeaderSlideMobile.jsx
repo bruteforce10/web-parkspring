@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { getAll } from "@/app/utils/getAll";
@@ -56,12 +55,10 @@ const HeaderSlideMobile = () => {
       >
         {data?.map((item, index) => (
           <SwiperSlide className="pb-12" key={index}>
-            <Image
+            <img
               src="/slider-2.webp"
               alt="image-about"
               className="w-full rounded-xl"
-              width={400}
-              height={400}
             />
             <div className="space-y-4 mt-6">
               <div className="flex gap-4 items-center">

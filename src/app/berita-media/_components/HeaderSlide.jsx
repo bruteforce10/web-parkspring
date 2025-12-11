@@ -5,7 +5,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { IoMdArrowDropright, IoMdArrowDropleft } from "react-icons/io";
-import Image from "next/image";
 import { getAll } from "@/app/utils/getAll";
 import dateFormat from "@/app/utils/dateFormat";
 import { useRouter } from "next/navigation";
@@ -68,12 +67,10 @@ const HeaderSlide = () => {
         {data &&
           data?.map((item, index) => (
             <SwiperSlide key={index}>
-              <Image
+              <img
                 src={item?.cover?.url}
                 alt={item?.cover?.title}
-                className="w-full h-screen  object-cover"
-                width={2000}
-                height={2000}
+                className="w-full h-screen object-cover"
               />
               <div className="absolute py-16 bg-gradient-to-t from-black/50 to-black/0 text-white w-full  bottom-0 px-8">
                 <div className="max-w-[650px] space-y-4">

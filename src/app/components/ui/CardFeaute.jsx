@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import React from "react";
 import CardHeading from "./CardHeading";
 import CardFeature from "./CardFeature";
@@ -23,13 +22,10 @@ const CardFeaute = ({
     <>
       <div className="rounded-3xl hover:-translate-y-4 transition-all bg-white overflow-hidden group  ">
         <div className="relative ">
-          <Image
+          <img
             src={`${image}`}
             alt="type rumah parkspring villa"
-            width={600}
             className="max-md:h-auto h-[300px] w-full object-cover"
-            height={600}
-            quality={50}
           />
           <div
             onClick={() =>

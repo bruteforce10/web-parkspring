@@ -1,5 +1,4 @@
 import dateFormat from "@/app/utils/dateFormat";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -13,12 +12,10 @@ const CardNewsHorizontal = ({
 }) => {
   return (
     <div className="flex gap-8 md:h-[200px] max-md:flex-col items-center ">
-      <Image
+      <img
         src={cover?.url}
         alt={cover?.fileName}
         className="rounded-xl w-full md:max-w-[300px] h-[200px] object-center object-cover"
-        width={800}
-        height={800}
       />
       <div className="space-y-4">
         <div className="flex gap-4 items-center">

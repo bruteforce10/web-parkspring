@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import React from "react";
 import { FaLocationDot, FaCalendarDays, FaClock } from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io";
@@ -20,23 +19,18 @@ const Footer = () => {
     <div className="h-screen md:pt-[7rem] max-md:py-12 text-primary">
       <div className="max-w-[1250px] mx-auto px-8 flex max-md:flex-col max-md:justify-center justify-between  gap-8 md:gap-20">
         <div className="space-y-10 max-md:space-y-6 max-md:mx-auto w-fit ">
-          <Image
+          <img
             src="/logo-parkspring.svg"
             alt="logo-parkspring"
-            width={300}
-            height={300}
-            quality={50}
+            className="w-[300px] h-auto"
           />
           <p className="text-lg max-md:text-center">
             Envisioned By Karsindo Group.
           </p>
-          <Image
+          <img
             src="/karsindo-group.webp"
             alt="logo-parkspring"
-            className="max-md:mx-auto "
-            width={200}
-            quality={50}
-            height={200}
+            className="max-md:mx-auto w-[200px] h-auto"
           />
         </div>
         <div className=" w-fit max-md:text-center ">
@@ -50,13 +44,10 @@ const Footer = () => {
               <h6 className="text-xl font-medium">
                 Kunjungi 360° PARKSPRING Gading
               </h6>
-              <Image
+              <img
                 src={"/qr-virtual-reality.webp"}
                 alt="map"
-                className="max-md:mx-auto"
-                width={300}
-                quality={50}
-                height={300}
+                className="max-md:mx-auto w-[300px] h-auto"
               />
             </div>
             <div className="space-y-6 text-start">

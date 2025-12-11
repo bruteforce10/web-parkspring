@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import SideSection from "./_components/SideSection";
 import BreadCrumpSearch from "../_components/BreadCrumpSearch";
@@ -80,12 +79,10 @@ const PageBeritaSection = ({ params }) => {
             </div>
           </div>
 
-          <Image
+          <img
             src={article?.cover?.url}
             alt={article?.fileName}
             className="rounded-xl w-full my-7 object-center object-cover"
-            width={800}
-            height={800}
           />
 
           <article>

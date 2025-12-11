@@ -4,7 +4,6 @@
 import React from "react";
 import { ImgComparisonSlider } from "@img-comparison-slider/react";
 import { HoverBorderGradient } from "./ui/ButtonOutline";
-import Image from "next/image";
 
 const ImageFeature = ({ headingMadeBy, descriptionMadeBy }) => {
   const heading = [
@@ -21,13 +20,10 @@ const ImageFeature = ({ headingMadeBy, descriptionMadeBy }) => {
             {heading[0]} <span className="font-semibold">{heading[1]}</span>{" "}
             {heading[2]}
           </p>
-          <Image
+          <img
             src={"/satu-arsitek.webp"}
-            className="mx-auto"
+            className="mx-auto w-[230px] h-auto"
             alt="satu arsitek parskpsring"
-            width={230}
-            height={230}
-            quality={50}
           />
         </div>
         <HoverBorderGradient className={"text-black "}>

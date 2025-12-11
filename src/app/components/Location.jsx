@@ -1,6 +1,5 @@
 import React from "react";
 import LogoParkspring from "./ui/LogoParkspring";
-import Image from "next/image";
 import { ListLocation } from "./ui/ListLocation";
 
 const dataLocation = [
@@ -51,13 +50,10 @@ const Location = ({ headingLocation, listLocation }) => {
               />
             ))}
           </div>
-          <Image
+          <img
             src="/map.webp"
             alt="location"
-            className="max-w-full h-auto "
-            width={900}
-            height={900}
-            quality={50}
+            className="max-w-full h-auto"
           />
         </div>
       </div>

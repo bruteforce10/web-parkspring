@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { fontPrimary } from "@/app/utils/FontPrimary";
 import { IoIosBed } from "react-icons/io";
 import { TbBathFilled } from "react-icons/tb";
@@ -46,13 +45,10 @@ const Modal = ({
                     transition={{ duration: 0.5 }}
                     exit={{ opacity: 0 }}
                   >
-                    <Image
+                    <img
                       src={`/type-house/interior/${name}/${slide}.webp`}
                       alt="image-about"
-                      width={1200}
-                      className="lg:h-screen h-[50vw] object-bottom   object-cover"
-                      height={600}
-                      quality={50}
+                      className="lg:h-screen h-[50vw] object-bottom object-cover w-full"
                     />
                   </motion.div>
                 </AnimatePresence>
@@ -126,13 +122,10 @@ const Modal = ({
               </div>
             </div>
           </div>
-          <Image
+          <img
             src={imageDenah}
             alt="image-about"
-            className=" mt-8  lg:mt-12"
-            width={300}
-            quality={50}
-            height={300}
+            className="mt-8 lg:mt-12 w-[300px] h-auto"
           />
         </div>
       </div>

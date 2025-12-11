@@ -1,6 +1,5 @@
 "use client";
 import { useInView, motion } from "framer-motion";
-import Image from "next/image";
 import React from "react";
 import { StickyScroll } from "./ui/sticky-scroll-reveal";
 import MobileFeatureList from "./ui/MobileFeatureList";
@@ -15,13 +14,10 @@ const FeatureList = ({ headingFeature, listFeature }) => {
     description: item?.description,
     content: (
       <div className="h-full w-full flex items-center justify-center text-white">
-        <Image
+        <img
           src={item?.image?.url}
-          width={300}
-          height={300}
           className="h-auto w-full sm:rounded-lg"
           alt="linear board demo"
-          quality={50}
         />
       </div>
     ),

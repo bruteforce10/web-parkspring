@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 
 export const getContentFragment = (index, text, obj, type) => {
@@ -96,13 +95,11 @@ export const getContentFragment = (index, text, obj, type) => {
 
     case "image":
       return (
-        <Image
+        <img
           key={index}
-          height={obj.height}
-          width={obj.width}
           alt={obj.altText}
           src={obj.src}
-          className="mb-4 rounded-xl"
+          className="mb-4 rounded-xl w-full h-auto"
         />
       );
     case "code-block":

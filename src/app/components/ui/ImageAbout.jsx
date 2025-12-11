@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
@@ -21,48 +20,38 @@ export const ImageAbout = () => {
   return (
     <motion.div style={{ scrollMotion: true }}>
       <div className="relative w-fit ">
-        <Image
+        <img
           src={"/about-us.webp"}
           alt="image-about"
-          className="rounded-xl"
-          width={400}
-          height={400}
-          quality={50}
+          className="rounded-xl w-[400px] h-auto"
         />
         <motion.div
           className="absolute bottom-[200px] w-64 space-y-4 -right-32 max-sm:hidden"
           style={{ bottom: scroll * 0.15 - 100 }}
         >
-          <Image
+          <img
             src={"/aboutsecond.webp"}
             alt="image-about"
-            className="rounded-xl  shadow-md"
-            width={250}
-            height={250}
-            quality={50}
+            className="rounded-xl shadow-md w-[250px] h-auto"
           />
           <a
             href="https://storage.wefinite.com/PARKSPRING_Gading"
             target="_blank"
             className="bg-gray-50 hover:scale-95 transition-all p-4 rounded-3xl flex gap-4 items-center"
           >
-            <Image
+            <img
               src={"/360.svg"}
               alt="image-about"
-              width={40}
-              height={40}
-              quality={50}
+              className="w-[40px] h-[40px]"
             />
             <p className="text-[#5F603A] leading-snug ">
               Jelajahi PARKSPRING Gading secara Virtual!
             </p>
           </a>
-          <Image
+          <img
             src={"/cursor.svg"}
             alt="cursor VR Parkspring"
-            className="absolute right-0 -bottom-2 -rotate-45"
-            width={25}
-            height={25}
+            className="absolute right-0 -bottom-2 -rotate-45 w-[25px] h-[25px]"
           />
         </motion.div>
         <a
@@ -70,12 +59,10 @@ export const ImageAbout = () => {
           target="_blank"
           className="bg-gray-50 -mt-[90px] mx-auto w-[95%] relative p-4 rounded-xl max-sm:flex hidden gap-4 items-center"
         >
-          <Image
+          <img
             src={"/360.svg"}
             alt="image-about"
-            width={40}
-            height={40}
-            quality={50}
+            className="w-[40px] h-[40px]"
           />
           <p className="text-[#5F603A] leading-snug ">
             Jelajahi PARKSPRING Gading secara Virtual!

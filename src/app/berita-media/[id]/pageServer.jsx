@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import SocialMedia from "./_components/SocialMedia";
 import Hastag from "./_components/Hastag";
 import SideSection from "./_components/SideSection";
@@ -55,12 +54,10 @@ export default async function pageBerita({ params }) {
             </h1>
           </div>
 
-          <Image
+          <img
             src={articel?.cover?.url}
             alt={articel?.fileName}
             className="rounded-xl w-full my-7 object-center object-cover"
-            width={800}
-            height={800}
           />
 
           <article>
