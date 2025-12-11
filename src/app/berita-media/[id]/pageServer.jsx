@@ -9,7 +9,7 @@ import { getContentFragment } from "@/app/utils/contentFragment";
 
 const getData = async (params) => {
   const res = await fetch(
-    `https://parkspring.vercel.app/api/news/${params.id}`,
+    `https://web-parkspring.vercel.app/api/news/${params.id}`,
     {
       cache: "no-cache",
       next: {

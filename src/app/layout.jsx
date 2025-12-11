@@ -8,7 +8,7 @@ import Script from "next/script";
 const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata = {
-  metadataBase: new URL("https://parkspring.vercel.app"),
+  metadataBase: new URL("https://web-parkspring.vercel.app"),
   title: "PARKSPRING Gading, Rumah 1,5 M-an Japanese Tropical",
   description:
     "Fasilitas PARKSPRING Gading · One Gate System & 24 Hours Security with Security Hub · Zen Garden · Fish Feeding Pond · Hidden Yoga Spot · Children Playground.",
