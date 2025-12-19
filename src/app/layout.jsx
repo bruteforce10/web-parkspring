@@ -15,7 +15,7 @@ export const metadata = {
   // kalo beda pakai ini
   openGraph: {
     images: "/opengraph-image.png",
-    title: "PARKSPRING Gading, Rumah 1,5 M-an Japanese Tropical",
+    title: "PARKSPRING Gading, Rumah 2M Bergaya Japanese Tropical",
     description:
       "Fasilitas PARKSPRING Gading · One Gate System & 24 Hours Security with Security Hub · Zen Garden · Fish Feeding Pond · Hidden Yoga Spot · Children Playground.",
   },
