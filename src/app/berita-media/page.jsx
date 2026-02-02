@@ -11,13 +11,13 @@ const getData = async (
   orderBy = "createdAt_DESC",
   category = "",
   first = "",
-  skip = ""
+  skip = "",
 ) => {
   const res = await fetch(
     `https://web-parkspring.vercel.app/api/news?orderBy=${orderBy}&category=${category}&first=${first}&skip=${skip}`,
     {
-      cache: "force-cache",
-    }
+      cache: "no-store",
+    },
   );
 
   if (!res.ok) {
