@@ -4,7 +4,7 @@ import { FaLocationDot, FaCalendarDays, FaClock } from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { useAppContext } from "../utils/stateContext";
 
-const Footer = ({ noWhatsapp }) => {
+const Footer = ({ noWhatsapp = "628179000104" }) => {
   function formatPhoneNumber(phoneNumber) {
     const part1 = phoneNumber?.slice(0, 4);
     const part2 = phoneNumber?.slice(4, 8);
