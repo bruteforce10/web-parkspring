@@ -43,7 +43,7 @@ export default async function Home() {
       <TypeSection {...dataLandingPages[0]} />
       <NewsLetterSection />
       <LocationMap />
-      <Footer {...dataLandingPages[0]} />
+      <Footer />
       <div className="fixed bottom-0 z-[99] w-full">
         <CallToAction />
       </div>
