@@ -1,3 +1,4 @@
+import { getLandingPageData } from "@/app/lib/landing-page";
 import About from "./components/About";
 import Feature from "./components/Feature";
 import FeatureList from "./components/FeatureList";
@@ -12,20 +13,10 @@ import TypeSection from "./components/TypeSection";
 import NewsLetterSection from "./components/NewsLetterSection";
 import CallToAction from "./components/CallToAction";
 
-async function getData() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/data-web`, {
-    cache: "no-store",
-  });
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
-}
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const { data } = await getData();
+  const data = await getLandingPageData();
   const { dataLandingPages } = data;
 
   return (
