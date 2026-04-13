@@ -13,7 +13,9 @@ const ContextProvider = ({ children }) => {
 
   const getData = async () => {
     try {
-      const res = await fetch("https://web-parkspring.vercel.app/api/data-web");
+      const res = await fetch("/api/data-web", {
+        cache: "no-store",
+      });
 
       if (!res.ok) {
         throw new Error("Failed to fetch data");

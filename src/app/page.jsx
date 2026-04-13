@@ -1,4 +1,3 @@
-import { revalidatePath } from "next/cache";
 import About from "./components/About";
 import Feature from "./components/Feature";
 import FeatureList from "./components/FeatureList";
@@ -21,7 +20,6 @@ async function getData() {
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
-  revalidatePath("/");
 
   return res.json();
 }

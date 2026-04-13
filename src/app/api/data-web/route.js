@@ -1,5 +1,7 @@
 import request, { gql } from "graphql-request";
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   const query = gql`
     query Assets {

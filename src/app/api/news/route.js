@@ -1,5 +1,7 @@
 import request, { gql } from "graphql-request";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(req) {
   const { first = 6, skip = 0, orderBy } = await req.json();
 

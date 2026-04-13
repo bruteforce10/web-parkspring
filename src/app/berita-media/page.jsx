@@ -4,7 +4,6 @@ import TabSection from "./_components/TabSection";
 import BreadCrumpSearch from "./_components/BreadCrumpSearch";
 import CardSectionHorizontal from "./_components/CardSectionHorizontal";
 import HookSection from "../components/HookSection";
-import { revalidatePath } from "next/cache";
 import HeaderSlideMobile from "./_components/HeaderSlideMobile";
 
 const getData = async (
@@ -24,7 +23,6 @@ const getData = async (
     throw new Error("Failed to fetch data");
   }
   const data = await res.json();
-  revalidatePath("/berita-media");
   return data;
 };
 
