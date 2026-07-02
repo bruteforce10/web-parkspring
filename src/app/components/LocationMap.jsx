@@ -8,11 +8,14 @@ const LocationMap = () => {
     <iframe
       title="lokasi rumah japanese tropical parkspring gading"
       id="location"
-      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3966.94392149935!2d106.9191605!3d-6.1382366!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698b3dbfb01dc7%3A0x459f2f75bee3312e!2sPARKSPRING%20Gading!5e0!3m2!1sen!2sid!4v1716831196775!5m2!1sen!2sid"
-      className="w-full h-[350px] scroll-mt-32"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.7359289976336!2d106.92127269999999!3d-6.1382642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698b4b9603ce09%3A0x59fc4ef52aed488c!2sMarketing%20Gallery%20PARKSPRING%20Gading!5e0!3m2!1sen!2sid!4v1782959428760!5m2!1sen!2sid"
+      width="600"
+      height="450"
+      style={{ border: 0 }}
       allowFullScreen=""
       loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
+      referrerPolicy="strict-origin-when-cross-origin"
+      className="w-full h-[350px] scroll-mt-32"
     ></iframe>
     // <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
     //   <TileLayer

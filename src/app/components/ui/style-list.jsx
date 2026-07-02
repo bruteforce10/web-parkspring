@@ -6,7 +6,7 @@ const StyleList = ({ herf, text }) => {
       <div>
         <a
           href={herf}
-          className="text-transparent text-xl bg-gradient-to-b from-[#5F603A] to-[#C4C678] bg-clip-text"
+          className="text-xl font-medium text-[#5F603A] hover:text-[#C4C678] transition-colors"
         >
           {text}
         </a>

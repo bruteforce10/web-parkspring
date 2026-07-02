@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { motion, spring } from "framer-motion";
 import { useAppContext } from "../utils/stateContext";
 import Link from "next/link";
+import Image from "next/image";
 
 const Navbar = () => {
   const { isScrolled, data } = useAppContext();
@@ -19,16 +20,18 @@ const Navbar = () => {
       className={clsx(
         "my-4 ",
         isScrolled &&
-          "bg-white/80 backdrop-blur-sm o md:h-24 h-fit max-md:py-4 "
+          "bg-white/80 backdrop-blur-sm o md:h-24 h-fit max-md:py-4 ",
       )}
     >
       <div className="navbar px-8 max-w-[1250px] mx-auto">
         <div className="navbar-start">
           <Link href="/">
-            <img
+            <Image
               src="/logo-parkspring.svg"
               alt="logo-parkspring"
-              className="w-[60%] md:hidden block object-contain z-50"
+              width={120}
+              height={40}
+              className="w-auto h-10 md:hidden block object-contain z-50"
             />
           </Link>
           <div className="hidden lg:block">
@@ -40,12 +43,17 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbar-center">
-          <motion.div animate={{ scale: isScrolled ? 0.75 : 1 }}>
+          <motion.div
+            animate={{ scale: isScrolled ? 0.75 : 1, y: 4 }}
+            transition={spring}
+          >
             <Link href="/">
-              <img
+              <Image
                 src="/logo-parkspring.svg"
                 alt="logo-parkspring"
-                className="w-[95%] md:block hidden object-contain z-50"
+                width={180}
+                height={56}
+                className="w-auto h-16 md:block hidden object-contain z-50"
               />
             </Link>
           </motion.div>
@@ -108,8 +116,8 @@ const Navbar = () => {
               >
                 <LuInstagram
                   className={clsx(
-                    "text-xl text-[#9b9d59] hover:text-white cursor-pointer transition-all",
-                    isScrolled && "hover:text-secondary transition-all"
+                    "text-xl text-[#5F603A] hover:text-[#C4C678] cursor-pointer transition-all",
+                    isScrolled && "hover:text-[#C4C678] transition-all",
                   )}
                 />
               </a>
@@ -120,8 +128,8 @@ const Navbar = () => {
               >
                 <GrFacebookOption
                   className={clsx(
-                    "text-xl text-[#9b9d59] hover:text-white cursor-pointer transition-all",
-                    isScrolled && "hover:text-secondary transition-all"
+                    "text-xl text-[#5F603A] hover:text-[#C4C678] cursor-pointer transition-all",
+                    isScrolled && "hover:text-[#C4C678] transition-all",
                   )}
                 />
               </a>
