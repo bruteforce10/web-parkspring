@@ -8,7 +8,7 @@ const Footer = ({ noWhatsapp = "6281388800386" }) => {
   function formatPhoneNumber(phoneNumber) {
     const part1 = phoneNumber?.slice(0, 4);
     const part2 = phoneNumber?.slice(4, 8);
-    const part3 = phoneNumber?.slice(8, 12);
+    const part3 = phoneNumber?.slice(8, 13);
 
     return `${part1}-${part2}-${part3}`;
   }
